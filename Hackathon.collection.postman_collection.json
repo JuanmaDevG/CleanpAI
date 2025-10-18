@@ -1,0 +1,248 @@
+{
+  "info": {
+    "_postman_id": "a6a8f9d4-5f3f-4d2f-9d2a-000000000000",
+    "name": "Hackathon API (Flask)",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_postman_exported_using": "Postman/10.24.0"
+  },
+  "item": [
+    {
+      "name": "1) ALTA CLIENTE (crear/actualizar)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{base_url}}/users", "host": ["{{base_url}}"], "path": ["users"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"iban\": \"{{iban_alto}}\",\n  \"notificaciones\": true,\n  \"umbral\": \"alto\",\n  \"id_usuario\": \"{{user_id_alto}}\",\n  \"token_acceso\": \"tok_postman_001\",\n  \"valido_hasta\": \"2030-12-31T23:59:59\"\n}"
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 201/200', function () {",
+              "  pm.expect([200,201]).to.include(pm.response.code);",
+              "});",
+              "const json = pm.response.json();",
+              "pm.test('Tiene campos esperados', function(){",
+              "  pm.expect(json).to.have.keys(['id_usuario','iban','notificaciones','umbral','valido_hasta']);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2) CONFIGURACIÓN CLIENTE (PUT /users/:id/config)",
+      "request": {
+        "method": "PUT",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": {
+          "raw": "{{base_url}}/users/{{user_id_medio}}/config",
+          "host": ["{{base_url}}"],
+          "path": ["users", "{{user_id_medio}}", "config"]
+        },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"notificaciones\": true,\n  \"umbral\": \"bajo\"\n}"
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const json = pm.response.json();",
+              "pm.test('Config actualizada', function(){",
+              "  pm.expect(json.id_usuario).to.eql(pm.environment.get('user_id_medio'));",
+              "  pm.expect(json.umbral).to.eql('bajo');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "3) BAJA CLIENTE (DELETE /users/:id)",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/users/{{user_id_bajo}}",
+          "host": ["{{base_url}}"],
+          "path": ["users", "{{user_id_bajo}}"]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const json = pm.response.json();",
+              "pm.test('Notificaciones apagadas tras baja', function(){",
+              "  pm.expect(json.notificaciones).to.eql(false);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "4) SUBIDA ARCHIVO (POST /processing/file) con transacciones demo",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{base_url}}/processing/file", "host": ["{{base_url}}"], "path": ["processing", "file"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"transacciones\": [\n    {\n      \"IBAN\": \"{{iban_alto}}\",\n      \"producto_map\": \"domiciliacion\",\n      \"empresa_cobradora_norm\": \"ES4300491500051234567892\",\n      \"valor\": 149.95,\n      \"fecha\": \"2025-10-01\",\n      \"recurrente\": true,\n      \"primer_gasto_con_empresa\": false,\n      \"codigo_transaccion\": \"TX-POST-ALTO-1\"\n    },\n    {\n      \"IBAN\": \"{{iban_medio}}\",\n      \"producto_map\": \"tarjeta\",\n      \"empresa_cobradora_norm\": \"ES2300189123456789012345\",\n      \"valor\": 250.00,\n      \"fecha\": \"2025-10-02\",\n      \"recurrente\": false,\n      \"primer_gasto_con_empresa\": true,\n      \"codigo_transaccion\": \"TX-POST-MEDIO-1\"\n    },\n    {\n      \"IBAN\": \"{{iban_bajo}}\",\n      \"producto_map\": \"transferencia\",\n      \"empresa_cobradora_norm\": \"ES9900202020202020202020\",\n      \"valor\": 420.10,\n      \"fecha\": \"2025-10-03\",\n      \"recurrente\": false,\n      \"primer_gasto_con_empresa\": true,\n      \"codigo_transaccion\": \"TX-POST-BAJO-1\"\n    },\n    {\n      \"IBAN\": \"{{iban_null}}\",\n      \"producto_map\": \"tarjeta\",\n      \"empresa_cobradora_norm\": \"ES1000300030003000300030\",\n      \"valor\": 88.00,\n      \"fecha\": \"2025-10-04\",\n      \"recurrente\": true,\n      \"primer_gasto_con_empresa\": false,\n      \"codigo_transaccion\": \"TX-POST-NULL-1\"\n    }\n  ]\n}"
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 202', () => pm.response.to.have.status(202));",
+              "const json = pm.response.json();",
+              "pm.test('Campos de respuesta', function(){",
+              "  pm.expect(json).to.have.keys(['procesadas','alertas_creadas']);",
+              "  pm.expect(json.procesadas).to.be.above(0);",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5a) GET /alerts (todas)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{base_url}}/alerts", "host": ["{{base_url}}"], "path": ["alerts"] }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const arr = pm.response.json();",
+              "pm.test('Es array', () => pm.expect(Array.isArray(arr)).to.be.true);",
+              "if (arr.length) {",
+              "  const a0 = arr[0];",
+              "  pm.test('Alerta tiene campos mínimos', function(){",
+              "    ['IBAN','codigo_transaccion','importe','umbral_probabilistico','IBAN_empresa_cobradora'].forEach(k=>pm.expect(a0).to.have.property(k));",
+              "  });",
+              "  pm.environment.set('last_alert_cod_tx', a0.codigo_transaccion);",
+              "}"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5b) GET /alerts?iban={{iban_medio}}",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/alerts?iban={{iban_medio}}",
+          "host": ["{{base_url}}"],
+          "path": ["alerts"],
+          "query": [{ "key": "iban", "value": "{{iban_medio}}" }]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const arr = pm.response.json();",
+              "pm.test('Filtrado por IBAN', function(){",
+              "  arr.forEach(a=>pm.expect(a.IBAN).to.eql(pm.environment.get('iban_medio')));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "5c) GET /alerts?min_score=0.7",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{base_url}}/alerts?min_score=0.7",
+          "host": ["{{base_url}}"],
+          "path": ["alerts"],
+          "query": [{ "key": "min_score", "value": "0.7" }]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status 200', () => pm.response.to.have.status(200));",
+              "const arr = pm.response.json();",
+              "pm.test('Filtrado por score', function(){",
+              "  arr.forEach(a=>pm.expect(a.umbral_probabilistico).to.be.at.least(0.7));",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Extra) ALTA CLIENTE rápido (user_null_on → medio por defecto)",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "url": { "raw": "{{base_url}}/users", "host": ["{{base_url}}"], "path": ["users"] },
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"iban\": \"{{iban_null}}\",\n  \"id_usuario\": \"{{user_id_null}}\",\n  \"token_acceso\": \"tok_postman_004\",\n  \"valido_hasta\": \"2031-12-31T23:59:59\"\n}"
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('201/200', function(){ pm.expect([200,201]).to.include(pm.response.code); });",
+              "const json = pm.response.json();",
+              "pm.test('Defaults aplicados', function(){",
+              "  pm.expect(json.notificaciones).to.eql(true);",
+              "  pm.expect(json.umbral).to.eql('medio');",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ]
+    }
+  ],
+  "event": [],
+  "variable": []
+}
