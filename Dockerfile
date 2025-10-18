@@ -1,24 +1,18 @@
-FROM python:3.11-slim
+FROM python:3.12
 
 WORKDIR /app
 
 RUN apt-get update && apt-get install -y \
     sqlite3 \
-    curl \
-    vim \
     && rm -rf /var/lib/apt/lists/*
 
-COPY . .
+COPY "json files/" .
+COPY api/
+COPY requirements.txt .
 
-# Instalar dependencias de Python si tienes requirements.txt
-# COPY requirements.txt .
-# RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Crear un volumen para persistir la base de datos
 VOLUME /app/data
+ENV DB_NAME=data.db
 
-# Variable de entorno para la base de datos
-ENV DB_NAME=sistema_alertas.db
-
-# Comando por defecto (puedes cambiarlo según tus necesidades)
-CMD ["python", "app.py"]
+CMD ["python3", "api/app.py"]

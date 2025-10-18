@@ -1,6 +1,0 @@
-#!/bin/bash
-
-#TODO: remove sudo when docker mounted
-sudo apt install python3-flask docker-compose-v2
-
-#TODO: application executor
