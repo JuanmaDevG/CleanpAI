@@ -242,7 +242,43 @@
         }
       ]
     }
+    {
+  "name": "GET Configuración cliente (GET /users/:id/config)",
+  "request": {
+    "method": "GET",
+    "header": [],
+    "url": {
+      "raw": "{{base_url}}/users/{{user_id_medio}}/config",
+      "host": ["{{base_url}}"],
+      "path": ["users", "{{user_id_medio}}", "config"]
+    }
+  },
+  "response": [],
+  "event": [
+    {
+      "listen": "test",
+      "script": {
+        "exec": [
+          "pm.test('Status 200', () => pm.response.to.have.status(200));",
+          "const json = pm.response.json();",
+          "pm.test('Tiene campos de configuración', function(){",
+          "  pm.expect(json).to.have.property('id_usuario');",
+          "  pm.expect(json).to.have.property('notificaciones');",
+          "  pm.expect(json).to.have.property('umbral');",
+          "});",
+          "// (Opcional) guarda valores en variables si te viene bien",
+          "pm.environment.set('cfg_notificaciones', json.notificaciones);",
+          "pm.environment.set('cfg_umbral', json.umbral);"
+        ],
+        "type": "text/javascript"
+      }
+    }
+  ]
+}
+
   ],
   "event": [],
   "variable": []
 }
+
+
