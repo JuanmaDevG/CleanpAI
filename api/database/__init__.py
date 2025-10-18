@@ -55,7 +55,7 @@ def create_database():
 
     cursor.execute('''
     CREATE TABLE IF NOT EXISTS AlertasEmitidas (
-        id_alerta INTEGER PRIMARY KEY AUTOINCREMENT,
+       id_alerta INTEGER PRIMARY KEY AUTOINCREMENT,
         iban TEXT NOT NULL,
         cod_transaccion TEXT NOT NULL,
         importe REAL NOT NULL,
