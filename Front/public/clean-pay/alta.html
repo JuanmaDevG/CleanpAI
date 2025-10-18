@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Alta — Clean pay</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{ --brand:#1463ff; --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fff; }
+    *{ box-sizing:border-box } html,body{ height:100% }
+    body{ margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:var(--bg) }
+    a{ color:inherit; text-decoration:none }
+    .container{ max-width:1200px; margin:0 auto; padding:0 20px }
+
+    /* NAV (igual mockup) */
+    .nav{height:72px; border-bottom:1px solid var(--border); position:sticky; top:0; background:#fff; z-index:10}
+    .nav__inner{display:flex; align-items:center; height:100%}
+    .nav__logo{display:flex; align-items:center; gap:10px; margin-right:22px}
+    .logo{width:28px; height:28px; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:800; background:var(--brand)}
+    .brand{font-size:1.25rem; font-weight:800}
+    .nav__spacer{flex:1}
+    .pill{display:inline-block; background:#000; color:#fff; font-weight:900; padding:10px 14px; border-radius:999px}
+
+    /* Cabecera azul */
+    .head-blue{ background:var(--brand); color:#fff; padding:18px 16px; border-radius:12px; margin:26px 0 16px; }
+    .title{ font-size:clamp(34px,5vw,56px); line-height:1.05; font-weight:900; margin:0 }
+    .sub{ color:var(--muted); margin:6px 0 14px }
+
+    /* Panel/formulario */
+    .panel{ border:1px solid var(--border); border-radius:16px; background:#fff; padding:22px; display:grid; gap:14px; max-width:720px }
+    .field{ display:flex; flex-direction:column; gap:8px }
+    .label{ font-weight:800 }
+    .input{
+      padding:12px 14px; border:1px solid var(--border); border-radius:12px; font-weight:600; font-size:1rem;
+    }
+    .hint{ color:var(--muted); font-size:.95rem; margin-top:-4px }
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:12px 16px; border-radius:12px; border:1px solid var(--border);
+      background:#000; color:#fff; font-weight:900; cursor:pointer; transition:transform .08s ease, opacity .2s ease;
+    }
+    .btn:disabled{ opacity:.6; cursor:not-allowed }
+    .btn:active{ transform:scale(.98) }
+    .msg{ padding:12px 14px; border-radius:12px; border:1px solid var(--border); background:#f8fafc; display:none }
+    .msg.show{ display:block }
+    .ok{ border-color:#16a34a; background:#ecfdf5 }
+    .err{ border-color:#dc2626; background:#fef2f2 }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <div class="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="/">
+        <div class="logo">B</div>
+        <div class="brand">Sabadell Demo</div>
+      </a>
+      <div class="nav__spacer"></div>
+      <a href="/clean-pay.html" class="pill">← Atrás</a>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <section>
+    <div class="container">
+      <div class="head-blue">
+        <h1 class="title">Alta</h1>
+      </div>
+      <p class="sub">Introduce tu IBAN para iniciar el proceso de alta.</p>
+
+      <div class="panel">
+        <form id="altaForm" novalidate>
+          <div class="field">
+            <label for="iban" class="label">IBAN</label>
+            <input id="iban" class="input" placeholder="ES00 0000 0000 00 0000000000" autocomplete="off" inputmode="text" maxlength="34" />
+            <div id="ibanHint" class="hint">Ejemplo: ES91 2100 0418 4502 0005 1332</div>
+          </div>
+
+          <button id="btnEnviar" class="btn" type="submit">Enviar</button>
+        </form>
+
+        <div id="msgOk" class="msg ok">Enviado correctamente.</div>
+        <div id="msgErr" class="msg err">Ha ocurrido un error. Inténtalo de nuevo.</div>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // --- Utils IBAN ---
+    function normalizeIban(v){
+      return (v || '').toUpperCase().replace(/[^A-Z0-9]/g, '');
+    }
+    function formatIban(v){
+      const n = normalizeIban(v);
+      return n.replace(/(.{4})/g, '$1 ').trim();
+    }
+    // Validación básica IBAN (longitud y patrón país/letras/dígitos)
+    function isIbanBasicValid(v){
+      const n = normalizeIban(v);
+      if (n.length < 15 || n.length > 34) return false;
+      if (!/^[A-Z]{2}\d{2}[A-Z0-9]+$/.test(n)) return false;
+      return true;
+    }
+    // (Opcional) Validación completa mod-97
+    function ibanMod97(v){
+      const n = normalizeIban(v);
+      const re = n.slice(4) + n.slice(0, 4);
+      const expanded = re.replace(/[A-Z]/g, (c) => (c.charCodeAt(0) - 55).toString());
+      // cálculo incremental para números largos
+      let remainder = 0;
+      for (let i = 0; i < expanded.length; i += 7) {
+        const block = remainder.toString() + expanded.slice(i, i + 7);
+        remainder = parseInt(block, 10) % 97;
+      }
+      return remainder === 1;
+    }
+
+    // --- DOM refs ---
+    const $iban = document.getElementById('iban');
+    const $btn = document.getElementById('btnEnviar');
+    const $form = document.getElementById('altaForm');
+    const $msgOk = document.getElementById('msgOk');
+    const $msgErr = document.getElementById('msgErr');
+
+    // Autoformateo visual
+    $iban.addEventListener('input', () => {
+      const pos = $iban.selectionStart;
+      const before = $iban.value;
+      $iban.value = formatIban(before);
+      // intentar mantener el cursor razonablemente
+      $iban.selectionStart = $iban.selectionEnd = Math.min($iban.value.length, (pos || 0) + ($iban.value.length - before.length));
+      $msgOk.classList.remove('show');
+      $msgErr.classList.remove('show');
+    });
+
+    // Submit
+    $form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      $msgOk.classList.remove('show');
+      $msgErr.classList.remove('show');
+
+      const iban = normalizeIban($iban.value);
+
+      // Validación básica + mod-97
+      if (!isIbanBasicValid(iban) || !ibanMod97(iban)) {
+        $msgErr.textContent = 'IBAN no válido. Revisa el formato.';
+        $msgErr.classList.add('show');
+        return;
+      }
+
+      // Desactivar mientras se envía
+      $btn.disabled = true;
+      const originalText = $btn.textContent;
+      $btn.textContent = 'Cargando…';
+
+      try {
+        // --- ESQUELETO DE LLAMADA A API ---
+        // Cambia la URL por tu endpoint real:
+        const res = await callAltaApi(iban);
+
+        if (!res.ok) {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        const data = await res.json().catch(() => ({}));
+
+        // TODO: maneja la respuesta como necesites
+        $msgOk.textContent = 'Enviado correctamente.';
+        $msgOk.classList.add('show');
+      } catch (err) {
+        console.error(err);
+        $msgErr.textContent = 'Ha ocurrido un error al enviar el IBAN.';
+        $msgErr.classList.add('show');
+      } finally {
+        $btn.disabled = false;
+        $btn.textContent = originalText;
+      }
+    });
+
+    // Función separada para mockear/cambiar el endpoint
+    function callAltaApi(iban){
+      // EJEMPLO con fetch POST JSON:
+      return fetch('https://api.ejemplo.com/alta', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ iban })
+        // Si necesitas credenciales/cookies:
+        // credentials: 'include'
+      });
+
+      // Si quieres probar sin backend, devuelve un mock:
+      // return new Promise(resolve => setTimeout(() => resolve(new Response(JSON.stringify({ ok:true }), { status: 200 })), 800));
+    }
+  </script>
+</body>
+</html>

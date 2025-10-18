@@ -1,0 +1,84 @@
+<!-- NAV -->
+<div class="nav">
+  <div class="container nav__inner">
+    <a class="nav__logo" href="#">
+      <div class="logo">B</div>
+      <div class="brand">Sabadell Demo</div>
+    </a>
+    <nav class="nav__tabs" aria-label="Secciones">
+      <a class="tab tab--active" href="#">Particulares</a>
+      <a class="tab" href="#">Empresas</a>
+      <a class="tab" href="#">Banca Privada</a>
+    </nav>
+    <div class="nav__spacer"></div>
+    <div class="nav__actions">
+      <span class="chip">Ayuda</span>
+      <span class="chip">Menú</span>
+    </div>
+  </div>
+</div>
+
+<!-- BANNER RIESGO -->
+<section class="risk">
+  <div class="risk__box">
+    <div class="risk__cell risk__score">
+      <div>1/6</div>
+      <small>Indicativo de riesgo (1 menor — 6 mayor)</small>
+    </div>
+    <div class="risk__cell risk__text">
+      Banco Demo S.A. adherido al Fondo de Garantía de Depósitos de Entidades de Crédito.
+      Importe garantizado actual hasta 100.000 € por depositante.
+    </div>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container hero__grid">
+    <!-- Columna izquierda -->
+    <div>
+      <div class="eyebrow">Clear PAI protege tu dinero con inteligencia artificial</div>
+      <h1 class="title">
+        Elige lo que pagas, <br>
+        cuidar tu dinero <br>
+        también es <br>
+        <span class="blue">protegerlo</span>
+      </h1>
+    </div>
+
+    <!-- Columna derecha: CTA IA -->
+    <div class="promo promo--ia">
+      <h2 class="ia-title">
+        Prueba nuestra nueva IA,
+        <span class="blue">Clear P</span><span class="purple">AI</span>
+      </h2>
+
+      <p class="ia-sub">
+        Te ayuda a gestionar y proteger tus pagos de forma inteligente.
+      </p>
+
+      <a href="/clean-pay.html" target="_blank" rel="noopener" class="cta-black" role="button">
+        Probar
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Inicializa user_id global y persistente -->
+<script>
+  (function ensureUserId(){
+    try {
+      let uid = localStorage.getItem('user_id');
+      if (!uid) {
+        uid = (window.crypto && crypto.randomUUID)
+          ? crypto.randomUUID()
+          : Math.random().toString(36).slice(2) + Date.now();
+        localStorage.setItem('user_id', uid);
+      }
+      window.USER_ID = uid; // accesible desde otros scripts
+      console.log('user_id:', uid);
+    } catch (e) {
+      console.warn('No se pudo inicializar user_id:', e);
+    }
+  })();
+</script>

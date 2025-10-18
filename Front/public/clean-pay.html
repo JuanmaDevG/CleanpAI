@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Clean pay — Demo</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root{ --brand:#1463ff; --text:#0a0a0a; --muted:#6b7280; --border:#e5e7eb; --bg:#fff; --purple:#7c3aed; }
+    *{box-sizing:border-box} html,body{height:100%}
+    body{margin:0; font-family:'Inter',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; color:var(--text); background:var(--bg)}
+    a{color:inherit; text-decoration:none}
+    .container{max-width:1200px; margin:0 auto; padding:0 20px}
+    .pill{display:inline-block; background:#000; color:#fff; font-weight:900; padding:10px 14px; border-radius:999px}
+
+    /* NAV */
+    .nav{height:72px; border-bottom:1px solid var(--border); position:sticky; top:0; background:#fff; z-index:10}
+    .nav__inner{display:flex; align-items:center; height:100%}
+    .nav__logo{display:flex; align-items:center; gap:10px; margin-right:22px}
+    .logo{width:28px; height:28px; border-radius:50%; display:grid; place-items:center; color:#fff; font-weight:800; background:var(--brand)}
+    .brand{font-size:1.25rem; font-weight:800}
+    .nav__spacer{flex:1}
+
+    /* Layout */
+    .hero{padding:46px 0 26px}
+    .hero__grid{display:grid; grid-template-columns:1.1fr .9fr; gap:40px; align-items:start}
+    .eyebrow{font-weight:800; color:#111; margin-bottom:8px}
+    .title{font-size:clamp(34px,5vw,56px); line-height:1.05; font-weight:900; margin:0 0 10px}
+    .blue{color:var(--brand)}
+    .sub{color:var(--muted); margin:0}
+
+    /* Panel y botones */
+    .panel{border:1px solid var(--border); border-radius:16px; background:#fff; padding:22px; display:grid; gap:16px}
+    .grid4{display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px}
+    .btn{
+      padding:14px 18px; border-radius:14px; border:1px solid var(--border); background:#fff; font-weight:800; cursor:pointer;
+      transition:transform .08s ease, box-shadow .2s ease, border-color .2s ease, background .2s ease;
+    }
+    .btn:hover{transform:translateY(-2px); box-shadow:0 10px 24px rgba(0,0,0,.08)}
+    .btn.active{border-color:var(--brand); background:rgba(20,99,255,.06)}
+    .content > section[hidden]{display:none}
+
+    @media (max-width:1024px){ .hero__grid{grid-template-columns:1fr} }
+    @media (max-width:640px){ .grid4{grid-template-columns:1fr} }
+  </style>
+</head>
+<body>
+  <!-- NAV: volver a la home en la MISMA pestaña (sin target) -->
+  <div class="nav">
+    <div class="container nav__inner">
+      <a class="nav__logo" href="/">
+        <div class="logo">B</div>
+        <div class="brand">Sabadell Demo</div>
+      </a>
+      <div class="nav__spacer"></div>
+      <a href="/" class="pill">← Volver</a>
+    </div>
+  </div>
+
+  <!-- Contenido -->
+  <section class="hero">
+    <div class="container hero__grid">
+      <div>
+        <div class="eyebrow">Nueva experiencia</div>
+        <h1 class="title">Bienvenido a <span class="blue">Clear P</span> <span class = "purple">AI</span></h1>
+        <p class="sub">Elige una acción. El contenido se actualizará aquí mismo, sin abrir pestañas.</p>
+      </div>
+
+      <div class="panel">
+        <strong style="font-size:1.05rem">Acciones rápidas</strong>
+
+        <div class="grid4" id="cp-buttons" style="grid-template-columns:repeat(2,minmax(0,1fr));">
+          <!-- Botón dinámico: alta o baja -->
+          <a id="btnPrimary" class="btn" href="#">...</a>
+
+          <!-- Botón fijo: configuración -->
+          <a class="btn" href="/clean-pay/configurar-app.html">Configuración</a>
+        </div>
+      </div>
+
+
+        <!--  Para poner info
+        Área de contenido intercambiable 
+        <div class="content" id="cp-content">
+          <section data-view="scan">
+            <h2>Escanear recibos</h2>
+            <p>Sube PDFs/imagenes para extraer importes, fechas, IBAN y conceptos con OCR+IA.</p>
+            <ul>
+              <li>PDF multipágina, JPG/PNG.</li>
+              <li>Normalización (fecha, moneda, NIF/CIF).</li>
+              <li>Exportación a CSV/Excel.</li>
+            </ul>
+          </section> -->
+
+          <section data-view="reconcile" hidden>
+            <h2>Conciliar pagos</h2>
+            <p>Empareja movimientos con facturas usando reglas y aprendizaje.</p>
+            <ul>
+              <li>Match por referencia, importe, ventana de fechas.</li>
+              <li>Gestión de discrepancias y tolerancias.</li>
+              <li>Bitácora auditada.</li>
+            </ul>
+          </section>
+
+          <section data-view="reports" hidden>
+            <h2>Generar informes</h2>
+            <p>Dashboards de cashflow, aging, KPIs y previsiones.</p>
+            <ul>
+              <li>Exportación a PDF/CSV.</li>
+              <li>Envío programado por email.</li>
+              <li>Filtros por cuenta, etiqueta y periodo.</li>
+            </ul>
+          </section>
+
+          <section data-view="rules" hidden>
+            <h2>Configurar reglas</h2>
+            <p>Clasifica, etiqueta y automatiza conciliaciones sin código.</p>
+            <ul>
+              <li>Condiciones por texto, importe, contrapartida.</li>
+              <li>Simulador “what-if”.</li>
+              <li>Versionado y rollback.</li>
+            </ul>
+          </section>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS mínimo para cambiar contenido sin abrir pestañas -->
+<script>
+  // Lee/escribe el flag en localStorage para que persista entre páginas
+  function getAIAdded() {
+    return localStorage.getItem('AI_Added') === 'true';
+  }
+  function setAIAdded(val) {
+    localStorage.setItem('AI_Added', String(!!val));
+  }
+
+  // Inicializa si no existe (por defecto: false = aún no activado)
+  if (localStorage.getItem('AI_Added') === null) {
+    setAIAdded(false);
+  }
+
+  // Pinta el botón según el estado
+  (function renderPrimary(){
+    const btn = document.getElementById('btnPrimary');
+    const added = getAIAdded();
+
+    if (!btn) return;
+
+    if (added) {
+      btn.textContent = 'Desactivar Clear PAI';
+      btn.href = 'clean-pay.html';
+      btn.title = 'Desactivar Clear PAI';
+      setAIAdded(false); // simula activación al entrar aquí
+    } else {
+      btn.textContent = 'Activar Clear PAI';
+      btn.href = 'clean-pay.html';
+      btn.title = 'Activar Clear PAI';
+      setAIAdded(true); // simula activación al entrar aquí
+    }
+  })();
+
+  // (Opcional) si quieres usar los “tabs” internos más adelante,
+  // deja este bloque pero no hará nada ahora mismo:
+  // const buttons = document.querySelectorAll('#cp-buttons .btn[data-view]');
+  // const sections = document.querySelectorAll('#cp-content [data-view]');
+</script>
+
+</body>
+</html>
