@@ -1,0 +1,1055 @@
+{
+  "customer_id": "C_005",
+  "source_match": "DB_FETCH",
+  "user_profile": {
+    "age": 55,
+    "salary_usd": 350000.00,
+    "iban_number": "ES01_1234_5678_0005",
+    "is_urban": false
+  },
+  "transactions": [
+    {
+      "transaction_code": "T005-C005-251023-001",
+      "iban_anonymized": "IBAN_A_005_R01",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Michelin",
+      "transaction_value": 350.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-002",
+      "iban_anonymized": "IBAN_A_005_R02",
+      "product_category": "Investment Transfer",
+      "collector_company": "Brokerage Firm X",
+      "transaction_value": 5000.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-003",
+      "iban_anonymized": "IBAN_A_005_R03",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 120.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-004",
+      "iban_anonymized": "IBAN_A_005_R04",
+      "product_category": "Designer Clothing",
+      "collector_company": "Prada Boutique",
+      "transaction_value": 1200.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-005",
+      "iban_anonymized": "IBAN_A_005_R05",
+      "product_category": "Private Club Fee",
+      "collector_company": "Executive Golf Club",
+      "transaction_value": 199.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-006",
+      "iban_anonymized": "IBAN_A_005_R06",
+      "product_category": "Art Purchase",
+      "collector_company": "Galería Sotheby's",
+      "transaction_value": 15000.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-007",
+      "iban_anonymized": "IBAN_A_005_R07",
+      "product_category": "Hotel Booking",
+      "collector_company": "Four Seasons",
+      "transaction_value": 850.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-008",
+      "iban_anonymized": "IBAN_A_005_R08",
+      "product_category": "Fine Wine Purchase",
+      "collector_company": "Bodega Premium",
+      "transaction_value": 450.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-009",
+      "iban_anonymized": "IBAN_A_005_R09",
+      "product_category": "Personal Assistant Salary",
+      "collector_company": "Nomina Service",
+      "transaction_value": 2500.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-010",
+      "iban_anonymized": "IBAN_A_005_R10",
+      "product_category": "Flight Booking (First Class)",
+      "collector_company": "Emirates",
+      "transaction_value": 4500.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-011",
+      "iban_anonymized": "IBAN_A_005_R11",
+      "product_category": "Tech Gadgets",
+      "collector_company": "Apple Premium Reseller",
+      "transaction_value": 999.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-012",
+      "iban_anonymized": "IBAN_A_005_R12",
+      "product_category": "Fuel/Car Maintenance",
+      "collector_company": "Porsche Dealer Service",
+      "transaction_value": 450.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-013",
+      "iban_anonymized": "IBAN_A_005_R13",
+      "product_category": "Gourmet Food Delivery",
+      "collector_company": "Chefs Delivery",
+      "transaction_value": 125.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-014",
+      "iban_anonymized": "IBAN_A_005_R14",
+      "product_category": "Private Security Fee",
+      "collector_company": "Security 24/7",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-015",
+      "iban_anonymized": "IBAN_A_005_R15",
+      "product_category": "Jewelry Purchase",
+      "collector_company": "Cartier",
+      "transaction_value": 8500.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-016",
+      "iban_anonymized": "IBAN_A_005_R16",
+      "product_category": "Business Magazine Subs",
+      "collector_company": "Financial Times",
+      "transaction_value": 45.99,
+      "transaction_date": "2025-10-22",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-017",
+      "iban_anonymized": "IBAN_A_005_R17",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 280.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-018",
+      "iban_anonymized": "IBAN_A_005_R18",
+      "product_category": "Online Auction Bid",
+      "collector_company": "Christie's Online",
+      "transaction_value": 3200.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-019",
+      "iban_anonymized": "IBAN_A_005_R19",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 185.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-020",
+      "iban_anonymized": "IBAN_A_005_R20",
+      "product_category": "Car Maintenance",
+      "collector_company": "Audi Official Workshop",
+      "transaction_value": 750.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-021",
+      "iban_anonymized": "IBAN_A_005_R21",
+      "product_category": "Jet Fuel",
+      "collector_company": "Private Aviation Services",
+      "transaction_value": 25000.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-022",
+      "iban_anonymized": "IBAN_A_005_R22",
+      "product_category": "Yacht Club Fee",
+      "collector_company": "Yachting Marina Club",
+      "transaction_value": 800.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-023",
+      "iban_anonymized": "IBAN_A_005_R23",
+      "product_category": "Private Gym/Trainer",
+      "collector_company": "Elite Personal Training",
+      "transaction_value": 350.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-024",
+      "iban_anonymized": "IBAN_A_005_R24",
+      "product_category": "Gourmet Food Delivery",
+      "collector_company": "Chefs Delivery",
+      "transaction_value": 95.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-025",
+      "iban_anonymized": "IBAN_A_005_R25",
+      "product_category": "Online Investment Course",
+      "collector_company": "Hedge Fund Masterclass",
+      "transaction_value": 500.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-026",
+      "iban_anonymized": "IBAN_A_005_R26",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 1000.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-027",
+      "iban_anonymized": "IBAN_A_005_R27",
+      "product_category": "Luxury Watch Service",
+      "collector_company": "Rolex Maintenance",
+      "transaction_value": 450.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-028",
+      "iban_anonymized": "IBAN_A_005_R28",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 210.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-029",
+      "iban_anonymized": "IBAN_A_005_R29",
+      "product_category": "Hotel Booking",
+      "collector_company": "Ritz-Carlton",
+      "transaction_value": 1200.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-030",
+      "iban_anonymized": "IBAN_A_005_R30",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 98.60,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-031",
+      "iban_anonymized": "IBAN_A_005_R31",
+      "product_category": "Charity Donation",
+      "collector_company": "UNICEF Foundation",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-032",
+      "iban_anonymized": "IBAN_A_005_R32",
+      "product_category": "Luxury Clothing",
+      "collector_company": "Hermès",
+      "transaction_value": 850.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-033",
+      "iban_anonymized": "IBAN_A_005_R33",
+      "product_category": "Home Service/Cleaning",
+      "collector_company": "Premium Housekeeping",
+      "transaction_value": 300.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-034",
+      "iban_anonymized": "IBAN_A_005_R34",
+      "product_category": "Professional Fee",
+      "collector_company": "Legal Advisory Firm",
+      "transaction_value": 2900.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-035",
+      "iban_anonymized": "IBAN_A_005_R35",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 90.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-036",
+      "iban_anonymized": "IBAN_A_005_R36",
+      "product_category": "Software License",
+      "collector_company": "Bloomberg Terminal",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-10-22",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-037",
+      "iban_anonymized": "IBAN_A_005_R37",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 320.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251022-038",
+      "iban_anonymized": "IBAN_A_005_R38",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 140.40,
+      "transaction_date": "2025-10-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-039",
+      "iban_anonymized": "IBAN_A_005_R39",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 500.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T005-C005-251023-040",
+      "iban_anonymized": "IBAN_A_005_R40",
+      "product_category": "General Luxury Shopping",
+      "collector_company": "Harrods",
+      "transaction_value": 250.00,
+      "transaction_date": "2025-10-23",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    
+    
+    
+    {
+      "iban_anonymized": "IBAN_A_005_A01",
+      "product_category": "Mortgage/Rent (Luxury)",
+      "collector_company": "Inmobiliaria Exclusiva",
+      "transaction_value": 4500.00,
+      "transaction_date": "2025-07-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A02",
+      "product_category": "Utility Bill (High Value)",
+      "collector_company": "Premium Utilities",
+      "transaction_value": 350.00,
+      "transaction_date": "2025-08-05",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A03",
+      "product_category": "International Travel",
+      "collector_company": "Private Jet Charter",
+      "transaction_value": 18000.00,
+      "transaction_date": "2025-07-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A04",
+      "product_category": "Art Purchase",
+      "collector_company": "Subasta Online",
+      "transaction_value": 7500.00,
+      "transaction_date": "2025-09-01",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A05",
+      "product_category": "Private Club Fee",
+      "collector_company": "Country Club",
+      "transaction_value": 450.00,
+      "transaction_date": "2025-07-10",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A06",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Michelin",
+      "transaction_value": 420.00,
+      "transaction_date": "2025-08-20",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A07",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 150.00,
+      "transaction_date": "2025-09-10",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A08",
+      "product_category": "Designer Clothing",
+      "collector_company": "Gucci Store",
+      "transaction_value": 980.00,
+      "transaction_date": "2025-07-30",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A09",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-07-15",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A10",
+      "product_category": "Hotel Booking",
+      "collector_company": "The Savoy",
+      "transaction_value": 1800.00,
+      "transaction_date": "2025-10-05",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A11",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 250.00,
+      "transaction_date": "2025-07-08",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A12",
+      "product_category": "Health Service (Private)",
+      "collector_company": "Clínica Exclusiva",
+      "transaction_value": 300.00,
+      "transaction_date": "2025-09-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A13",
+      "product_category": "Software License (Business)",
+      "collector_company": "CRM Enterprise",
+      "transaction_value": 1200.00,
+      "transaction_date": "2025-08-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A14",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Rolls-Royce Service",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-07-12",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A15",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Michelin",
+      "transaction_value": 550.00,
+      "transaction_date": "2025-09-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A16",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 1000.00,
+      "transaction_date": "2025-07-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A17",
+      "product_category": "Private Butler Service",
+      "collector_company": "Concierge Elite",
+      "transaction_value": 1200.00,
+      "transaction_date": "2025-08-05",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A18",
+      "product_category": "Online Auction Bid",
+      "collector_company": "Sotheby's Online",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-07-30",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A19",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 150.80,
+      "transaction_date": "2025-09-15",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A20",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 110.00,
+      "transaction_date": "2025-07-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A21",
+      "product_category": "Mortgage/Rent (Luxury)",
+      "collector_company": "Inmobiliaria Exclusiva",
+      "transaction_value": 4500.00,
+      "transaction_date": "2025-10-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A22",
+      "product_category": "Health Service (Private)",
+      "collector_company": "Spa & Wellness Center",
+      "transaction_value": 250.00,
+      "transaction_date": "2025-08-08",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A23",
+      "product_category": "Utility Bill (High Value)",
+      "collector_company": "Premium Utilities",
+      "transaction_value": 400.00,
+      "transaction_date": "2025-07-03",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A24",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 500.00,
+      "transaction_date": "2025-09-08",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A25",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 620.00,
+      "transaction_date": "2025-07-29",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A26",
+      "product_category": "Property Tax/Fee",
+      "collector_company": "Tax Authority",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-09-01",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A27",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 280.00,
+      "transaction_date": "2025-07-20",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A28",
+      "product_category": "Hotel Booking",
+      "collector_company": "Ritz-Carlton",
+      "transaction_value": 900.00,
+      "transaction_date": "2025-08-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A29",
+      "product_category": "Luxury Clothing",
+      "collector_company": "Louis Vuitton",
+      "transaction_value": 2100.00,
+      "transaction_date": "2025-10-01",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A30",
+      "product_category": "Investment Transfer",
+      "collector_company": "Brokerage Firm Y",
+      "transaction_value": 8000.00,
+      "transaction_date": "2025-08-11",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A31",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 1000.00,
+      "transaction_date": "2025-07-06",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A32",
+      "product_category": "Tech Gadgets",
+      "collector_company": "Bang & Olufsen",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-09-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A33",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 100.00,
+      "transaction_date": "2025-08-03",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A34",
+      "product_category": "Designer Clothing",
+      "collector_company": "Dior",
+      "transaction_value": 1200.00,
+      "transaction_date": "2025-09-18",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A35",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 280.00,
+      "transaction_date": "2025-07-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A36",
+      "product_category": "Investment Transfer",
+      "collector_company": "Brokerage Firm X",
+      "transaction_value": 5000.00,
+      "transaction_date": "2025-07-27",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A37",
+      "product_category": "Jewelry Purchase",
+      "collector_company": "Tiffany & Co",
+      "transaction_value": 4500.00,
+      "transaction_date": "2025-10-11",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A38",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 190.50,
+      "transaction_date": "2025-08-07",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A39",
+      "product_category": "Private Club Fee",
+      "collector_company": "Executive Golf Club",
+      "transaction_value": 199.00,
+      "transaction_date": "2025-07-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A40",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 90.00,
+      "transaction_date": "2025-07-21",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A41",
+      "product_category": "Mortgage/Rent (Luxury)",
+      "collector_company": "Inmobiliaria Exclusiva",
+      "transaction_value": 4500.00,
+      "transaction_date": "2025-09-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A42",
+      "product_category": "Private Security Fee",
+      "collector_company": "Security 24/7",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-10-09",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A43",
+      "product_category": "Utility Bill (High Value)",
+      "collector_company": "Premium Utilities",
+      "transaction_value": 380.00,
+      "transaction_date": "2025-07-07",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A44",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 750.00,
+      "transaction_date": "2025-08-29",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A45",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 190.00,
+      "transaction_date": "2025-07-18",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A46",
+      "product_category": "Private Butler Service",
+      "collector_company": "Concierge Elite",
+      "transaction_value": 1200.00,
+      "transaction_date": "2025-09-27",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A47",
+      "product_category": "Online Auction Bid",
+      "collector_company": "Christie's Online",
+      "transaction_value": 900.00,
+      "transaction_date": "2025-08-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A48",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 170.90,
+      "transaction_date": "2025-07-09",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A49",
+      "product_category": "Media Subscription (Premium)",
+      "collector_company": "The Wall Street Journal",
+      "transaction_value": 55.00,
+      "transaction_date": "2025-07-26",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A50",
+      "product_category": "Tech Gadgets",
+      "collector_company": "High-End Audio Store",
+      "transaction_value": 950.00,
+      "transaction_date": "2025-08-02",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A51",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Private Banking ATM",
+      "transaction_value": 500.00,
+      "transaction_date": "2025-09-09",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A52",
+      "product_category": "Fine Dining",
+      "collector_company": "Restaurante Exclusivo",
+      "transaction_value": 310.00,
+      "transaction_date": "2025-07-29",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A53",
+      "product_category": "Private Club Fee",
+      "collector_company": "Executive Golf Club",
+      "transaction_value": 199.00,
+      "transaction_date": "2025-07-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A54",
+      "product_category": "Luxury Car Service",
+      "collector_company": "Chauffeur Elite",
+      "transaction_value": 130.00,
+      "transaction_date": "2025-10-02",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A55",
+      "product_category": "Mortgage/Rent (Luxury)",
+      "collector_company": "Inmobiliaria Exclusiva",
+      "transaction_value": 4500.00,
+      "transaction_date": "2025-08-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A56",
+      "product_category": "Luxury Grocery",
+      "collector_company": "Whole Foods Market",
+      "transaction_value": 220.75,
+      "transaction_date": "2025-09-21",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A57",
+      "product_category": "Fine Wine Purchase",
+      "collector_company": "Bodega Premium",
+      "transaction_value": 300.00,
+      "transaction_date": "2025-07-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A58",
+      "product_category": "Personal Assistant Salary",
+      "collector_company": "Nomina Service",
+      "transaction_value": 2500.00,
+      "transaction_date": "2025-09-10",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A59",
+      "product_category": "Designer Clothing",
+      "collector_company": "Burberry",
+      "transaction_value": 750.00,
+      "transaction_date": "2025-08-27",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_005_A60",
+      "product_category": "Hotel Booking",
+      "collector_company": "Four Seasons",
+      "transaction_value": 1500.00,
+      "transaction_date": "2025-09-14",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    }
+  ]
+}

@@ -1,0 +1,1055 @@
+{
+  "customer_id": "C_006",
+  "source_match": "DB_FETCH",
+  "user_profile": {
+    "age": 20,
+    "salary_usd": 0.00,
+    "iban_number": "ES01_1234_5678_0006",
+    "is_urban": true
+  },
+  "transactions": [
+    {
+      "transaction_code": "T006-C006-251025-001",
+      "iban_anonymized": "IBAN_A_006_R01",
+      "product_category": "Streaming Subscription",
+      "collector_company": "Spotify Premium (Student)",
+      "transaction_value": 4.99,
+      "transaction_date": "2025-10-25",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-002",
+      "iban_anonymized": "IBAN_A_006_R02",
+      "product_category": "Payment to Friend (Bizum)",
+      "collector_company": "P2P Transfer (Alquiler)",
+      "transaction_value": 150.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-003",
+      "iban_anonymized": "IBAN_A_006_R03",
+      "product_category": "Online Shopping",
+      "collector_company": "Amazon (Books)",
+      "transaction_value": 18.50,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-004",
+      "iban_anonymized": "IBAN_A_006_R04",
+      "product_category": "Fast Food",
+      "collector_company": "Domino's Pizza (Oferta)",
+      "transaction_value": 12.99,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-005",
+      "iban_anonymized": "IBAN_A_006_R05",
+      "product_category": "Gaming Micro-Transaction",
+      "collector_company": "Steam Wallet",
+      "transaction_value": 5.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-006",
+      "iban_anonymized": "IBAN_A_006_R06",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "CaixaBank ATM",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-007",
+      "iban_anonymized": "IBAN_A_006_R07",
+      "product_category": "Coffee Shop",
+      "collector_company": "Starbucks (Estudio)",
+      "transaction_value": 3.90,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-008",
+      "iban_anonymized": "IBAN_A_006_R08",
+      "product_category": "Delivery Service Fee",
+      "collector_company": "Glovo Prime (Shared)",
+      "transaction_value": 2.99,
+      "transaction_date": "2025-10-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-009",
+      "iban_anonymized": "IBAN_A_006_R09",
+      "product_category": "University Fee/Purchase",
+      "collector_company": "Copistería Campus",
+      "transaction_value": 5.50,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-010",
+      "iban_anonymized": "IBAN_A_006_R10",
+      "product_category": "P2P Payment (Split Food)",
+      "collector_company": "Bizum a Compañero",
+      "transaction_value": 8.75,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-011",
+      "iban_anonymized": "IBAN_A_006_R11",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Mercadona",
+      "transaction_value": 15.20,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-012",
+      "iban_anonymized": "IBAN_A_006_R12",
+      "product_category": "Public Transport",
+      "collector_company": "Metro Bono",
+      "transaction_value": 10.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-013",
+      "iban_anonymized": "IBAN_A_006_R13",
+      "product_category": "Online Micro-Purchase",
+      "collector_company": "AliExpress",
+      "transaction_value": 6.50,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-014",
+      "iban_anonymized": "IBAN_A_006_R14",
+      "product_category": "Software Subscription (Academic)",
+      "collector_company": "Adobe Creative Cloud",
+      "transaction_value": 19.99,
+      "transaction_date": "2025-10-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-015",
+      "iban_anonymized": "IBAN_A_006_R15",
+      "product_category": "Fast Food",
+      "collector_company": "Kebab",
+      "transaction_value": 7.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-016",
+      "iban_anonymized": "IBAN_A_006_R16",
+      "product_category": "Gaming Subscription",
+      "collector_company": "Discord Nitro",
+      "transaction_value": 4.99,
+      "transaction_date": "2025-10-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-017",
+      "iban_anonymized": "IBAN_A_006_R17",
+      "product_category": "P2P Payment (Debt)",
+      "collector_company": "Bizum a Familiar",
+      "transaction_value": 50.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-018",
+      "iban_anonymized": "IBAN_A_006_R18",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Dia",
+      "transaction_value": 9.80,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-019",
+      "iban_anonymized": "IBAN_A_006_R19",
+      "product_category": "Online Clothing (Discount)",
+      "collector_company": "Vinted",
+      "transaction_value": 11.50,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-020",
+      "iban_anonymized": "IBAN_A_006_R20",
+      "product_category": "Mobile Bill (Low Cost)",
+      "collector_company": "O2 Low Cost",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-021",
+      "iban_anonymized": "IBAN_A_006_R21",
+      "product_category": "Coffee Shop",
+      "collector_company": "Local Cafeteria",
+      "transaction_value": 2.20,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-022",
+      "iban_anonymized": "IBAN_A_006_R22",
+      "product_category": "Public Transport",
+      "collector_company": "Metro Bono",
+      "transaction_value": 5.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-023",
+      "iban_anonymized": "IBAN_A_006_R23",
+      "product_category": "Payment to Friend (Dinner)",
+      "collector_company": "P2P Transfer",
+      "transaction_value": 18.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-024",
+      "iban_anonymized": "IBAN_A_006_R24",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Lidl",
+      "transaction_value": 24.50,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-025",
+      "iban_anonymized": "IBAN_A_006_R25",
+      "product_category": "Streaming Subscription (Shared)",
+      "collector_company": "Netflix (Compartido)",
+      "transaction_value": 4.50,
+      "transaction_date": "2025-10-25",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-026",
+      "iban_anonymized": "IBAN_A_006_R26",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "ING ATM",
+      "transaction_value": 30.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-027",
+      "iban_anonymized": "IBAN_A_006_R27",
+      "product_category": "Gaming Micro-Transaction",
+      "collector_company": "Riot Games",
+      "transaction_value": 10.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-028",
+      "iban_anonymized": "IBAN_A_006_R28",
+      "product_category": "Fast Food",
+      "collector_company": "McDonald's",
+      "transaction_value": 8.90,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-029",
+      "iban_anonymized": "IBAN_A_006_R29",
+      "product_category": "Online Micro-Purchase",
+      "collector_company": "Wish",
+      "transaction_value": 7.50,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-030",
+      "iban_anonymized": "IBAN_A_006_R30",
+      "product_category": "P2P Payment (Shared Utility)",
+      "collector_company": "Bizum a Compañero",
+      "transaction_value": 12.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-031",
+      "iban_anonymized": "IBAN_A_006_R31",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Mercadona",
+      "transaction_value": 8.50,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-032",
+      "iban_anonymized": "IBAN_A_006_R32",
+      "product_category": "Ride Share/Taxi",
+      "collector_company": "Cabify Lite",
+      "transaction_value": 6.50,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-033",
+      "iban_anonymized": "IBAN_A_006_R33",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "BBVA ATM",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-034",
+      "iban_anonymized": "IBAN_A_006_R34",
+      "product_category": "University Fee/Purchase",
+      "collector_company": "Librería Universitaria",
+      "transaction_value": 25.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-035",
+      "iban_anonymized": "IBAN_A_006_R35",
+      "product_category": "Fast Food",
+      "collector_company": "Burger King",
+      "transaction_value": 9.20,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-036",
+      "iban_anonymized": "IBAN_A_006_R36",
+      "product_category": "Hobby Subscription",
+      "collector_company": "Twitch Subscription",
+      "transaction_value": 4.99,
+      "transaction_date": "2025-10-24",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-037",
+      "iban_anonymized": "IBAN_A_006_R37",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Lidl",
+      "transaction_value": 11.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251024-038",
+      "iban_anonymized": "IBAN_A_006_R38",
+      "product_category": "Payment to Friend (Tickets)",
+      "collector_company": "P2P Transfer",
+      "transaction_value": 35.00,
+      "transaction_date": "2025-10-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-039",
+      "iban_anonymized": "IBAN_A_006_R39",
+      "product_category": "Online Micro-Purchase",
+      "collector_company": "Etsy (Digital Art)",
+      "transaction_value": 3.00,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T006-C006-251025-040",
+      "iban_anonymized": "IBAN_A_006_R40",
+      "product_category": "Shared Bike/Scooter",
+      "collector_company": "Lime Scooters",
+      "transaction_value": 4.50,
+      "transaction_date": "2025-10-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    
+    
+    
+    {
+      "iban_anonymized": "IBAN_A_006_A01",
+      "product_category": "Monthly Allowance/Income",
+      "collector_company": "Transferencia Familiar",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-07-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A02",
+      "product_category": "Internet/Phone Bill (Shared)",
+      "collector_company": "Jazztel (Shared)",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-08-15",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A03",
+      "product_category": "Payment to Friend (Bizum)",
+      "collector_company": "P2P Transfer",
+      "transaction_value": 10.00,
+      "transaction_date": "2025-07-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A04",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Mercadona",
+      "transaction_value": 21.00,
+      "transaction_date": "2025-09-01",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A05",
+      "product_category": "Streaming Subscription",
+      "collector_company": "Amazon Prime Student",
+      "transaction_value": 1.99,
+      "transaction_date": "2025-07-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A06",
+      "product_category": "Fast Food",
+      "collector_company": "Telepizza",
+      "transaction_value": 14.50,
+      "transaction_date": "2025-08-20",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A07",
+      "product_category": "Public Transport",
+      "collector_company": "Metro Bono",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-09-10",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A08",
+      "product_category": "General Shopping",
+      "collector_company": "IKEA (Low Value)",
+      "transaction_value": 9.99,
+      "transaction_date": "2025-06-30",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A09",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Santander ATM",
+      "transaction_value": 40.00,
+      "transaction_date": "2025-07-15",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A10",
+      "product_category": "Online Micro-Purchase",
+      "collector_company": "AliExpress",
+      "transaction_value": 4.90,
+      "transaction_date": "2025-10-05",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A11",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Lidl",
+      "transaction_value": 17.50,
+      "transaction_date": "2025-07-08",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A12",
+      "product_category": "Coffee Shop",
+      "collector_company": "Local Cafeteria",
+      "transaction_value": 1.50,
+      "transaction_date": "2025-09-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A13",
+      "product_category": "Gaming Subscription",
+      "collector_company": "Xbox Game Pass (Shared)",
+      "transaction_value": 5.00,
+      "transaction_date": "2025-08-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A14",
+      "product_category": "Fast Food",
+      "collector_company": "Burger King",
+      "transaction_value": 6.80,
+      "transaction_date": "2025-07-12",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A15",
+      "product_category": "P2P Payment (Split Bill)",
+      "collector_company": "Bizum a Compañero",
+      "transaction_value": 11.20,
+      "transaction_date": "2025-09-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A16",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "BBVA ATM",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-06-25",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A17",
+      "product_category": "Streaming Subscription",
+      "collector_company": "Hobby Streaming Service",
+      "transaction_value": 9.99,
+      "transaction_date": "2025-08-05",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A18",
+      "product_category": "Online Shopping (Used)",
+      "collector_company": "Wallapop",
+      "transaction_value": 30.00,
+      "transaction_date": "2025-07-30",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A19",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Dia",
+      "transaction_value": 14.80,
+      "transaction_date": "2025-09-15",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A20",
+      "product_category": "Shared Bike/Scooter",
+      "collector_company": "Bolt Scooters",
+      "transaction_value": 2.99,
+      "transaction_date": "2025-06-22",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A21",
+      "product_category": "Monthly Allowance/Income",
+      "collector_company": "Transferencia Familiar",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-10-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A22",
+      "product_category": "Fast Food",
+      "collector_company": "Taco Bell",
+      "transaction_value": 10.50,
+      "transaction_date": "2025-08-08",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A23",
+      "product_category": "Internet/Phone Bill (Shared)",
+      "collector_company": "Jazztel (Shared)",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-07-03",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A24",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "CaixaBank ATM",
+      "transaction_value": 50.00,
+      "transaction_date": "2025-09-08",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A25",
+      "product_category": "General Shopping",
+      "collector_company": "Primark",
+      "transaction_value": 25.00,
+      "transaction_date": "2025-06-29",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A26",
+      "product_category": "University Fee/Purchase",
+      "collector_company": "Tasa Matrícula",
+      "transaction_value": 150.00,
+      "transaction_date": "2025-09-01",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A27",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Lidl",
+      "transaction_value": 20.25,
+      "transaction_date": "2025-07-20",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A28",
+      "product_category": "Ride Share/Taxi",
+      "collector_company": "Uber (Shared)",
+      "transaction_value": 5.75,
+      "transaction_date": "2025-08-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A29",
+      "product_category": "Fast Food",
+      "collector_company": "Goiko Grill (Split)",
+      "transaction_value": 16.00,
+      "transaction_date": "2025-10-01",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A30",
+      "product_category": "Gaming Micro-Transaction",
+      "collector_company": "Nintendo Eshop",
+      "transaction_value": 9.99,
+      "transaction_date": "2025-08-11",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A31",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "ING ATM",
+      "transaction_value": 30.00,
+      "transaction_date": "2025-07-06",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A32",
+      "product_category": "Online Micro-Purchase",
+      "collector_company": "AliExpress",
+      "transaction_value": 1.50,
+      "transaction_date": "2025-09-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A33",
+      "product_category": "Public Transport",
+      "collector_company": "Metro Bono",
+      "transaction_value": 10.00,
+      "transaction_date": "2025-08-03",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A34",
+      "product_category": "General Shopping",
+      "collector_company": "Tienda de Ropa (Sale)",
+      "transaction_value": 19.99,
+      "transaction_date": "2025-09-18",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A35",
+      "product_category": "Coffee Shop",
+      "collector_company": "Starbucks (Estudio)",
+      "transaction_value": 3.90,
+      "transaction_date": "2025-07-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A36",
+      "product_category": "P2P Payment (Shared Gift)",
+      "collector_company": "Bizum a Amigo",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-06-27",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A37",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Mercadona",
+      "transaction_value": 12.50,
+      "transaction_date": "2025-10-11",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A38",
+      "product_category": "Fast Food",
+      "collector_company": "McDonald's",
+      "transaction_value": 7.40,
+      "transaction_date": "2025-08-07",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A39",
+      "product_category": "Online Course",
+      "collector_company": "Udemy (Sale)",
+      "transaction_value": 14.99,
+      "transaction_date": "2025-07-24",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A40",
+      "product_category": "Shared Bike/Scooter",
+      "collector_company": "Lime Scooters",
+      "transaction_value": 3.50,
+      "transaction_date": "2025-07-21",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A41",
+      "product_category": "Monthly Allowance/Income",
+      "collector_company": "Transferencia Familiar",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-09-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A42",
+      "product_category": "Mobile Bill (Low Cost)",
+      "collector_company": "O2 Low Cost",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-10-09",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A43",
+      "product_category": "Internet/Phone Bill (Shared)",
+      "collector_company": "Jazztel (Shared)",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-07-07",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A44",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Santander ATM",
+      "transaction_value": 30.00,
+      "transaction_date": "2025-08-29",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A45",
+      "product_category": "Fast Food",
+      "collector_company": "Kebab",
+      "transaction_value": 6.50,
+      "transaction_date": "2025-07-18",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A46",
+      "product_category": "P2P Payment (Shared Taxi)",
+      "collector_company": "Bizum a Amigo",
+      "transaction_value": 5.00,
+      "transaction_date": "2025-09-27",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A47",
+      "product_category": "Online Micro-Purchase",
+      "collector_company": "AliExpress",
+      "transaction_value": 2.50,
+      "transaction_date": "2025-08-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A48",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Lidl",
+      "transaction_value": 18.90,
+      "transaction_date": "2025-07-09",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A49",
+      "product_category": "Streaming Subscription (Shared)",
+      "collector_company": "HBO Max (Compartido)",
+      "transaction_value": 3.99,
+      "transaction_date": "2025-07-26",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A50",
+      "product_category": "General Shopping",
+      "collector_company": "Tiger Store",
+      "transaction_value": 11.50,
+      "transaction_date": "2025-08-02",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A51",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "CaixaBank ATM",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-09-09",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A52",
+      "product_category": "Fast Food",
+      "collector_company": "Goiko Grill (Split)",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-07-29",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A53",
+      "product_category": "Public Transport",
+      "collector_company": "Metro Bono",
+      "transaction_value": 10.00,
+      "transaction_date": "2025-07-24",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A54",
+      "product_category": "Shared Bike/Scooter",
+      "collector_company": "Lime Scooters",
+      "transaction_value": 4.00,
+      "transaction_date": "2025-10-02",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A55",
+      "product_category": "Monthly Allowance/Income",
+      "collector_company": "Transferencia Familiar",
+      "transaction_value": 600.00,
+      "transaction_date": "2025-08-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A56",
+      "product_category": "Cheap Grocery",
+      "collector_company": "Dia",
+      "transaction_value": 16.75,
+      "transaction_date": "2025-09-21",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A57",
+      "product_category": "Coffee Shop",
+      "collector_company": "Local Cafeteria",
+      "transaction_value": 2.50,
+      "transaction_date": "2025-07-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A58",
+      "product_category": "Software Subscription (Academic)",
+      "collector_company": "Adobe Creative Cloud",
+      "transaction_value": 19.99,
+      "transaction_date": "2025-09-10",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A59",
+      "product_category": "Online Shopping (Discount)",
+      "collector_company": "ASOS Sale",
+      "transaction_value": 35.00,
+      "transaction_date": "2025-08-27",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_006_A60",
+      "product_category": "Fast Food",
+      "collector_company": "Domino's Pizza (Oferta)",
+      "transaction_value": 12.99,
+      "transaction_date": "2025-09-14",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    }
+  ]
+}
