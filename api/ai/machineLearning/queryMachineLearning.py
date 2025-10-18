@@ -11,7 +11,7 @@ import traceback
 import joblib
 
 from typing import Dict, Any
-from machineLearning.trainMachineLearning import transformar_fecha_a_timestamp_simple
+from ai.machineLearning.trainMachineLearning import transformar_fecha_a_timestamp_simple
 
 
 def queryMachineLearning(transaction_data: Dict[str, Any]) -> float:

@@ -3,15 +3,17 @@ from enum import Enum
 from typing import List, Dict, Any
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS # habilitar CORS para que no haya problemas al incorporar la API local desde un front-end
 from sqlalchemy import Enum as SAEnum
 from pathlib import Path
-from largeLanguageModel.queryLargeLanguageModel import queryLargeLanguageModel
-from machineLearning.queryMachineLearning import queryMachineLearning
+from ai.largeLanguageModel.queryLargeLanguageModel import queryLargeLanguageModel
+from ai.machineLearning.queryMachineLearning import queryMachineLearning
 import json
 BASE_DIR = Path(__file__).resolve().parent  # carpeta donde está app.py
 
 
 app = Flask(__name__)
+CORS(app)  # Habilitar CORS para todas las rutas
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{(BASE_DIR / 'zombis.db')}"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
