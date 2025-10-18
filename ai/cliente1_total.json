@@ -1,0 +1,955 @@
+{
+  "customer_id": "C_001",
+  "source_match": "API_MATCH",
+  "user_profile": {
+    "age": 35,
+    "salary_usd": 35000.50,
+    "iban_number": "ES01_1234_5678_0001",
+    "is_urban": true
+  },
+  "transactions": [
+    {
+      "transaction_code": "T001-C001-251017-001",
+      "iban_anonymized": "IBAN_A_001_R01",
+      "product_category": "Monthly Subscription",
+      "collector_company": "Netflix",
+      "transaction_value": 12.99,
+      "transaction_date": "2025-10-17",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-002",
+      "iban_anonymized": "IBAN_A_001_R02",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "BBVA",
+      "transaction_value": 50.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-003",
+      "iban_anonymized": "IBAN_A_001_R03",
+      "product_category": "Restaurant Expense",
+      "collector_company": "La Tagliatella",
+      "transaction_value": 38.75,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-004",
+      "iban_anonymized": "IBAN_A_001_R04",
+      "product_category": "Pharmacy Purchase",
+      "collector_company": "Farmacia Central",
+      "transaction_value": 15.20,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-005",
+      "iban_anonymized": "IBAN_A_001_R05",
+      "product_category": "Public Parking Fee",
+      "collector_company": "Empark",
+      "transaction_value": 4.50,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-006",
+      "iban_anonymized": "IBAN_A_001_R06",
+      "product_category": "Gym Membership",
+      "collector_company": "Basic Fit",
+      "transaction_value": 29.99,
+      "transaction_date": "2025-10-16",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-007",
+      "iban_anonymized": "IBAN_A_001_R07",
+      "product_category": "Online Purchase",
+      "collector_company": "Amazon",
+      "transaction_value": 75.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": true
+    },
+    {
+      "transaction_code": "T001-C001-251016-008",
+      "iban_anonymized": "IBAN_A_001_R08",
+      "product_category": "Public Transport",
+      "collector_company": "Metro",
+      "transaction_value": 1.50,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-009",
+      "iban_anonymized": "IBAN_A_001_R09",
+      "product_category": "Cafeteria Expense",
+      "collector_company": "Starbucks",
+      "transaction_value": 4.50,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-010",
+      "iban_anonymized": "IBAN_A_001_R10",
+      "product_category": "Electronics Purchase",
+      "collector_company": "MediaMarkt",
+      "transaction_value": 120.50,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-011",
+      "iban_anonymized": "IBAN_A_001_R11",
+      "product_category": "General Shopping",
+      "collector_company": "Carrefour",
+      "transaction_value": 85.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-012",
+      "iban_anonymized": "IBAN_A_001_R12",
+      "product_category": "Fuel Expense",
+      "collector_company": "Shell",
+      "transaction_value": 55.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-013",
+      "iban_anonymized": "IBAN_A_001_R13",
+      "product_category": "Restaurant Expense",
+      "collector_company": "VIPS",
+      "transaction_value": 25.50,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-014",
+      "iban_anonymized": "IBAN_A_001_R14",
+      "product_category": "Clothing Purchase",
+      "collector_company": "H&M",
+      "transaction_value": 39.99,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": true
+    },
+    {
+      "transaction_code": "T001-C001-251017-015",
+      "iban_anonymized": "IBAN_A_001_R15",
+      "product_category": "Online Purchase",
+      "collector_company": "Zalando",
+      "transaction_value": 49.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-016",
+      "iban_anonymized": "IBAN_A_001_R16",
+      "product_category": "Mobile Top-up",
+      "collector_company": "Movistar",
+      "transaction_value": 20.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-017",
+      "iban_anonymized": "IBAN_A_001_R17",
+      "product_category": "Entertainment",
+      "collector_company": "Cine Yelmo",
+      "transaction_value": 18.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-018",
+      "iban_anonymized": "IBAN_A_001_R18",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "Santander ATM",
+      "transaction_value": 100.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-019",
+      "iban_anonymized": "IBAN_A_001_R19",
+      "product_category": "Supermarket Purchase",
+      "collector_company": "Mercadona",
+      "transaction_value": 62.70,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-020",
+      "iban_anonymized": "IBAN_A_001_R20",
+      "product_category": "Restaurant Expense",
+      "collector_company": "Bar Amigos",
+      "transaction_value": 15.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-021",
+      "iban_anonymized": "IBAN_A_001_R21",
+      "product_category": "Public Transport",
+      "collector_company": "EMT",
+      "transaction_value": 3.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-022",
+      "iban_anonymized": "IBAN_A_001_R22",
+      "product_category": "Cafeteria Expense",
+      "collector_company": "Tim Hortons",
+      "transaction_value": 6.90,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-023",
+      "iban_anonymized": "IBAN_A_001_R23",
+      "product_category": "Online Purchase",
+      "collector_company": "AliExpress",
+      "transaction_value": 8.50,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-024",
+      "iban_anonymized": "IBAN_A_001_R24",
+      "product_category": "Pharmacy Purchase",
+      "collector_company": "Farmacia Ronda",
+      "transaction_value": 22.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-025",
+      "iban_anonymized": "IBAN_A_001_R25",
+      "product_category": "General Shopping",
+      "collector_company": "Primark",
+      "transaction_value": 19.90,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-026",
+      "iban_anonymized": "IBAN_A_001_R26",
+      "product_category": "Restaurant Expense",
+      "collector_company": "McDonald's",
+      "transaction_value": 18.90,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-027",
+      "iban_anonymized": "IBAN_A_001_R27",
+      "product_category": "Monthly Subscription",
+      "collector_company": "HBO Max",
+      "transaction_value": 9.99,
+      "transaction_date": "2025-10-17",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-028",
+      "iban_anonymized": "IBAN_A_001_R28",
+      "product_category": "Cash Withdrawal",
+      "collector_company": "CaixaBank ATM",
+      "transaction_value": 40.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-029",
+      "iban_anonymized": "IBAN_A_001_R29",
+      "product_category": "Fuel Expense",
+      "collector_company": "BP",
+      "transaction_value": 60.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-030",
+      "iban_anonymized": "IBAN_A_001_R30",
+      "product_category": "Clothing Purchase",
+      "collector_company": "Massimo Dutti",
+      "transaction_value": 79.95,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-031",
+      "iban_anonymized": "IBAN_A_001_R31",
+      "product_category": "Public Parking Fee",
+      "collector_company": "Saba",
+      "transaction_value": 6.50,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-032",
+      "iban_anonymized": "IBAN_A_001_R32",
+      "product_category": "Entertainment",
+      "collector_company": "Teatro Real",
+      "transaction_value": 45.00,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-033",
+      "iban_anonymized": "IBAN_A_001_R33",
+      "product_category": "Supermarket Purchase",
+      "collector_company": "Lidl",
+      "transaction_value": 30.25,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-034",
+      "iban_anonymized": "IBAN_A_001_R34",
+      "product_category": "Restaurant Expense",
+      "collector_company": "Taco Bell",
+      "transaction_value": 14.99,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-035",
+      "iban_anonymized": "IBAN_A_001_R35",
+      "product_category": "General Shopping",
+      "collector_company": "Decathlon",
+      "transaction_value": 90.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-036",
+      "iban_anonymized": "IBAN_A_001_R36",
+      "product_category": "Online Purchase",
+      "collector_company": "Etsy",
+      "transaction_value": 25.40,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-037",
+      "iban_anonymized": "IBAN_A_001_R37",
+      "product_category": "Public Transport",
+      "collector_company": "Renfe",
+      "transaction_value": 12.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251016-038",
+      "iban_anonymized": "IBAN_A_001_R38",
+      "product_category": "Cafeteria Expense",
+      "collector_company": "Costa Coffee",
+      "transaction_value": 3.20,
+      "transaction_date": "2025-10-16",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-039",
+      "iban_anonymized": "IBAN_A_001_R39",
+      "product_category": "Pharmacy Purchase",
+      "collector_company": "Ahorro Farm",
+      "transaction_value": 18.50,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "transaction_code": "T001-C001-251017-040",
+      "iban_anonymized": "IBAN_A_001_R40",
+      "product_category": "Car Service",
+      "collector_company": "Taller Auto",
+      "transaction_value": 45.00,
+      "transaction_date": "2025-10-17",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+
+    
+
+    {
+      "iban_anonymized": "IBAN_A_001_A01",
+      "product_category": "Rent Payment",
+      "collector_company": "Inmobiliaria XYZ",
+      "transaction_value": 850.00,
+      "transaction_date": "2025-06-25",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A02",
+      "product_category": "Supermarket Purchase",
+      "collector_company": "Mercadona",
+      "transaction_value": 45.30,
+      "transaction_date": "2025-07-01",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A03",
+      "product_category": "Bank Commission",
+      "collector_company": "Banco Central",
+      "transaction_value": 3.00,
+      "transaction_date": "2025-07-30",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A04",
+      "product_category": "Electricity Bill",
+      "collector_company": "Iberdrola",
+      "transaction_value": 92.55,
+      "transaction_date": "2025-08-10",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": true
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A05",
+      "product_category": "Vehicle Fee",
+      "collector_company": "DGT",
+      "transaction_value": 42.10,
+      "transaction_date": "2025-08-20",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A06",
+      "product_category": "Flight Ticket",
+      "collector_company": "Ryanair",
+      "transaction_value": 75.99,
+      "transaction_date": "2025-09-03",
+      "is_recurring": false,
+      "is_first_purchase": true,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A07",
+      "product_category": "Clothing Purchase",
+      "collector_company": "Zara",
+      "transaction_value": 55.00,
+      "transaction_date": "2025-09-15",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A08",
+      "product_category": "Restaurant Expense",
+      "collector_company": "Restaurante Centro",
+      "transaction_value": 65.50,
+      "transaction_date": "2025-08-28",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A09",
+      "product_category": "Phone Bill Payment",
+      "collector_company": "Vodafone",
+      "transaction_value": 39.90,
+      "transaction_date": "2025-07-05",
+      "is_recurring": true,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+      "iban_anonymized": "IBAN_A_001_A10",
+      "product_category": "General Shopping",
+      "collector_company": "El Corte Inglés",
+      "transaction_value": 150.00,
+      "transaction_date": "2025-06-30",
+      "is_recurring": false,
+      "is_first_purchase": false,
+      "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A11",
+        "product_category": "Online Course Fee",
+        "collector_company": "Coursera",
+        "transaction_value": 89.00,
+        "transaction_date": "2025-09-29",
+        "is_recurring": false,
+        "is_first_purchase": true,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A12",
+        "product_category": "Restaurant Expense",
+        "collector_company": "Goiko Grill",
+        "transaction_value": 41.20,
+        "transaction_date": "2025-08-01",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A13",
+        "product_category": "General Shopping",
+        "collector_company": "Fnac",
+        "transaction_value": 125.00,
+        "transaction_date": "2025-07-22",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A14",
+        "product_category": "Mobile Top-up",
+        "collector_company": "Orange",
+        "transaction_value": 45.00,
+        "transaction_date": "2025-08-15",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A15",
+        "product_category": "Public Transport",
+        "collector_company": "Metro",
+        "transaction_value": 1.50,
+        "transaction_date": "2025-09-02",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A16",
+        "product_category": "Cafeteria Expense",
+        "collector_company": "Starbucks",
+        "transaction_value": 5.90,
+        "transaction_date": "2025-10-10",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A17",
+        "product_category": "Online Purchase",
+        "collector_company": "Ebay",
+        "transaction_value": 35.50,
+        "transaction_date": "2025-07-12",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A18",
+        "product_category": "Gym Membership",
+        "collector_company": "Basic Fit",
+        "transaction_value": 29.99,
+        "transaction_date": "2025-08-01",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A19",
+        "product_category": "Supermarket Purchase",
+        "collector_company": "Carrefour",
+        "transaction_value": 112.45,
+        "transaction_date": "2025-09-19",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A20",
+        "product_category": "Entertainment",
+        "collector_company": "Cinesa",
+        "transaction_value": 24.00,
+        "transaction_date": "2025-07-08",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A21",
+        "product_category": "Electricity Bill",
+        "collector_company": "Iberdrola",
+        "transaction_value": 115.60,
+        "transaction_date": "2025-07-10",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A22",
+        "product_category": "Clothing Purchase",
+        "collector_company": "Zara",
+        "transaction_value": 89.90,
+        "transaction_date": "2025-10-05",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": true
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A23",
+        "product_category": "Restaurant Expense",
+        "collector_company": "100 Montaditos",
+        "transaction_value": 15.00,
+        "transaction_date": "2025-08-22",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A24",
+        "product_category": "Cash Withdrawal",
+        "collector_company": "BBVA ATM",
+        "transaction_value": 50.00,
+        "transaction_date": "2025-06-28",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A25",
+        "product_category": "Public Parking Fee",
+        "collector_company": "Empark",
+        "transaction_value": 8.00,
+        "transaction_date": "2025-09-12",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A26",
+        "product_category": "General Shopping",
+        "collector_company": "Amazon",
+        "transaction_value": 18.50,
+        "transaction_date": "2025-10-01",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A27",
+        "product_category": "Phone Bill Payment",
+        "collector_company": "Orange",
+        "transaction_value": 42.99,
+        "transaction_date": "2025-09-05",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A28",
+        "product_category": "Monthly Subscription",
+        "collector_company": "Spotify",
+        "transaction_value": 9.99,
+        "transaction_date": "2025-08-18",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A29",
+        "product_category": "Flight Ticket",
+        "collector_company": "Vueling",
+        "transaction_value": 140.00,
+        "transaction_date": "2025-07-03",
+        "is_recurring": false,
+        "is_first_purchase": true,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A30",
+        "product_category": "Supermarket Purchase",
+        "collector_company": "Lidl",
+        "transaction_value": 28.75,
+        "transaction_date": "2025-09-25",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A31",
+        "product_category": "Restaurant Expense",
+        "collector_company": "KFC",
+        "transaction_value": 12.50,
+        "transaction_date": "2025-10-12",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A32",
+        "product_category": "Pharmacy Purchase",
+        "collector_company": "Farmacia 24h",
+        "transaction_value": 11.00,
+        "transaction_date": "2025-08-08",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A33",
+        "product_category": "General Shopping",
+        "collector_company": "Aliexpress",
+        "transaction_value": 7.99,
+        "transaction_date": "2025-06-21",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A34",
+        "product_category": "Cash Withdrawal",
+        "collector_company": "CaixaBank ATM",
+        "transaction_value": 20.00,
+        "transaction_date": "2025-07-19",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A35",
+        "product_category": "Gym Membership",
+        "collector_company": "McFit",
+        "transaction_value": 35.00,
+        "transaction_date": "2025-09-01",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A36",
+        "product_category": "Entertainment",
+        "collector_company": "Museo Prado",
+        "transaction_value": 15.00,
+        "transaction_date": "2025-10-08",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A37",
+        "product_category": "Restaurant Expense",
+        "collector_company": "TGB",
+        "transaction_value": 19.50,
+        "transaction_date": "2025-07-29",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A38",
+        "product_category": "Public Parking Fee",
+        "collector_company": "Aparcamiento Central",
+        "transaction_value": 5.50,
+        "transaction_date": "2025-08-25",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A39",
+        "product_category": "Online Purchase",
+        "collector_company": "Asos",
+        "transaction_value": 68.00,
+        "transaction_date": "2025-06-30",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": true
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A40",
+        "product_category": "Supermarket Purchase",
+        "collector_company": "Dia",
+        "transaction_value": 40.10,
+        "transaction_date": "2025-09-17",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A41",
+        "product_category": "Cafeteria Expense",
+        "collector_company": "Viena",
+        "transaction_value": 4.00,
+        "transaction_date": "2025-10-14",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A42",
+        "product_category": "Clothing Purchase",
+        "collector_company": "Mango",
+        "transaction_value": 30.50,
+        "transaction_date": "2025-08-04",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A43",
+        "product_category": "Monthly Subscription",
+        "collector_company": "Adobe",
+        "transaction_value": 19.99,
+        "transaction_date": "2025-07-26",
+        "is_recurring": true,
+        "is_first_purchase": true,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A44",
+        "product_category": "Restaurant Expense",
+        "collector_company": "Lateral",
+        "transaction_value": 70.00,
+        "transaction_date": "2025-09-10",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A45",
+        "product_category": "Public Transport",
+        "collector_company": "Renfe",
+        "transaction_value": 8.00,
+        "transaction_date": "2025-08-31",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A46",
+        "product_category": "Online Purchase",
+        "collector_company": "Amazon",
+        "transaction_value": 15.65,
+        "transaction_date": "2025-06-27",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A47",
+        "product_category": "General Shopping",
+        "collector_company": "Leroy Merlin",
+        "transaction_value": 25.00,
+        "transaction_date": "2025-07-15",
+        "is_recurring": false,
+        "is_first_purchase": true,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A48",
+        "product_category": "Bank Commission",
+        "collector_company": "BBVA",
+        "transaction_value": 2.50,
+        "transaction_date": "2025-08-01",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A49",
+        "product_category": "Entertainment",
+        "collector_company": "Netflix",
+        "transaction_value": 12.99,
+        "transaction_date": "2025-09-20",
+        "is_recurring": true,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    },
+    {
+        "iban_anonymized": "IBAN_A_001_A50",
+        "product_category": "Cash Withdrawal",
+        "collector_company": "BBVA ATM",
+        "transaction_value": 60.00,
+        "transaction_date": "2025-10-03",
+        "is_recurring": false,
+        "is_first_purchase": false,
+        "has_been_refunded": false
+    }
+  ]
+}
