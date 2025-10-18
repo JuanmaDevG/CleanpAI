@@ -1,12 +1,13 @@
-# app.py
 from datetime import datetime, timedelta
 from enum import Enum
 from typing import List, Dict, Any
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import Enum as SAEnum
-# app.py (reemplaza la línea de la URI)
 from pathlib import Path
+from largeLanguageModel.queryLargeLanguageModel import queryLargeLanguageModel
+from machineLearning.queryMachineLearning import queryMachineLearning
+import json
 BASE_DIR = Path(__file__).resolve().parent  # carpeta donde está app.py
 
 
@@ -283,37 +284,55 @@ def get_alerts():
         })
     return jsonify(out)
 
-# --------------------------------------------
-# Stub de la función de ML (marcada claramente)
-# --------------------------------------------
+
+
 def forward_to_zombie_detector_ml(transacciones: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
     """
-    ML_PIPELINE_ENTRYPOINT
-    Esta función es el único punto de integración con el motor/servicio de ML.
-    Aquí se debe transformar/enviar 'transacciones' al lenguaje/servicio de ML
-    y devolver la misma lista enriquecida con:
-      - score: float (0..1)
-      - codigo_transaccion: string (si no viene en entrada)
+    Real integration with AI pipeline.
+    Combines predictions from ML and LLM.
     """
-    # ---- MOCK DE EJEMPLO (quítalo cuando conectes ML) ----
     enriched = []
-    for t in transacciones:
-        item = dict(t)
-        # Si no llega código, generamos uno reproducible
-        item.setdefault("codigo_transaccion", f"TX-{abs(hash((t.get('IBAN'), t.get('empresa_cobradora_norm'), t.get('fecha'))))%10_000_000}")
-        # Score mock: regla tonta según importe y flags (solo para pruebas end-to-end)
-        base = float(t.get("valor", 0.0)) / 1000.0
-        if t.get("recurrente"):
-            base += 0.1
-        if t.get("primer_gasto_con_empresa"):
-            base += 0.2
-        item["score"] = max(0.0, min(1.0, base))
-        enriched.append(item)
-    return transacciones
-    # ------------------------------------------------------
 
-# -------------------------
-# Arranque
-# -------------------------
+    # Load client history (optional, if needed by LLM)
+    try:
+        with open(AI_DIR / "cliente1_total.json", "r", encoding="utf-8") as f:
+            historial_completo = json.load(f)
+    except Exception:
+        historial_completo = {"transactions": [], "user_profile": {}}
+
+    for t in transacciones:
+        tx_data = {
+            'transaction_value': t.get('valor', 0.0),
+            'is_recurring': t.get('recurrente', False),
+            'is_first_purchase': t.get('primer_gasto_con_empresa', False),
+            'product_category': t.get('producto_map', ''),
+            'collector_company': t.get('empresa_cobradora_norm', ''),
+            'iban_anonymized': t.get('IBAN', ''),
+            'transaction_date': t.get('fecha', ''),
+            'has_been_refunded': False  # no info in your schema, so default to False
+        }
+
+        try:
+            riesgo_llm = queryLargeLanguageModel(tx_data, historial_completo)
+        except Exception:
+            riesgo_llm = 0.5
+
+        try:
+            riesgo_ml = queryMachineLearning(tx_data)
+        except Exception:
+            riesgo_ml = 0.5
+
+        score_final = round((riesgo_llm + riesgo_ml) / 2, 3)
+
+        enriched.append({
+            **t,
+            "codigo_transaccion": t.get("codigo_transaccion") or f"TX-{abs(hash((t.get('IBAN'), t.get('empresa_cobradora_norm'), t.get('fecha'))))%10_000_000}",
+            "score": score_final,
+        })
+
+    return enriched
+
+
+
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=8000, debug=True)
