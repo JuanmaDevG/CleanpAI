@@ -176,8 +176,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # --- 9. Guardar el Preprocesador --- NUEVO PASO
-    NOMBRE_ARCHIVO_PREPROCESSOR = 'api/ai/machineLearning/preprocessor.joblib' # O .pkl si prefieres pickle
-    # Asegurarse de que el directorio existe (por si acaso)
+    NOMBRE_ARCHIVO_PREPROCESSOR = 'api/ai/machineLearning/preprocessor.joblib'
     modelo_dir = os.path.dirname(NOMBRE_ARCHIVO_PREPROCESSOR)
     if modelo_dir and not os.path.exists(modelo_dir):
         os.makedirs(modelo_dir, exist_ok=True)
