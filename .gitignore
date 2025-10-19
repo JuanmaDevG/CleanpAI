@@ -6,3 +6,6 @@ CleanpAI.vcxproj.filters
 CleanpAI.vcxproj.user
 venv
 .vs
+node_modules/
+.angular/cache/
+*.zip
