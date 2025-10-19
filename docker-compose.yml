@@ -33,6 +33,12 @@ services:
       retries: 20
     restart: unless-stopped
 
+  frontend:
+    build: ./Front
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
 volumes:
   api_data:
   models_cache:
