@@ -109,71 +109,61 @@
     </div>
   </section>
 
-  <script>
-    // Estado a guardar
-    let umbralSeleccionado = null;
-    let canalesSeleccionados = []; // array de strings
+<script>
+(function(){
+  const API_BASE = 'http://localhost:8000';
 
-    // Elementos UI
-    const $umbral = document.getElementById('umbral');
-    const $btnSave = document.getElementById('btnSave');
+  function getUserId() {
+    return localStorage.getItem('user_id') || '';
+  }
+
+
+  window.addEventListener('DOMContentLoaded', () => {
+    const $umbral   = document.getElementById('umbral');
+    const $btnSave  = document.getElementById('btnSave');
     const $savedMsg = document.getElementById('savedMsg');
-    const $chips = document.getElementById('chips');
 
-    // Init desde localStorage
-    (function initFromStorage(){
-      const u = localStorage.getItem('cfg_umbral');
-      const c = localStorage.getItem('cfg_canales'); // JSON
+    // handler Aceptar -> manda user_id + string + json (+ bool)
+    $btnSave.addEventListener('click', async () => {
+      const userId        = getUserId();                // <-- user_id
+      const cfg_umbral    = $umbral.value;              // <-- string
+      const cfg_notif     = true;                       // <-- bool (siempre ON)
 
-      // Mantén cfg_notif=true para el resto de la app (ya no hay toggle)
-      localStorage.setItem('cfg_notif', 'true');
-
-      if (u) {
-        umbralSeleccionado = u;
-        $umbral.value = u;
-      }
-      if (c) {
-        try { canalesSeleccionados = JSON.parse(c) || []; } catch { canalesSeleccionados = []; }
+      if (!userId) {
+        alert('Falta user_id en la URL (?user_id=...)');
+        return;
       }
 
-      // marcar chips según lo guardado
-      if (canalesSeleccionados.length) {
-        canalesSeleccionados.forEach(key => {
-          const chip = $chips.querySelector(`[data-key="${key}"]`);
-          if (chip) {
-            chip.classList.add('active');
-            const input = chip.querySelector('input');
-            if (input) input.checked = true;
-          }
+      // Body que enviamos al backend
+      // - umbral / notificaciones: los usa hoy tu API
+      // - cfg_canales / user_id: viajan como extra (tu API actual los ignorará)
+      const body = {
+        umbral: cfg_umbral,
+        notificaciones: cfg_notif,
+        user_id: userId
+      };
+
+      try {
+        const res = await fetch(`${API_BASE}/users/${encodeURIComponent(userId)}/config`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(body)
         });
+        if (!res.ok) {
+          const msg = await res.text().catch(()=> '');
+          throw new Error(`PUT falló (${res.status}): ${msg}`);
+        }
+        const data = await res.json();
+        console.log('Guardado en backend:', data);
+        $savedMsg.classList.add('show');
+      } catch (e) {
+        console.error(e);
+        alert('No se pudo guardar en el servidor. Se guardó en este navegador.');
       }
-    })();
-
-    // Gestión de chips (multiselección)
-    $chips.addEventListener('change', (e) => {
-      const inp = e.target;
-      if (!(inp instanceof HTMLInputElement)) return;
-      const key = inp.value;
-      const chip = inp.closest('.chip');
-      if (inp.checked) {
-        chip?.classList.add('active');
-        if (!canalesSeleccionados.includes(key)) canalesSeleccionados.push(key);
-      } else {
-        chip?.classList.remove('active');
-        canalesSeleccionados = canalesSeleccionados.filter(k => k !== key);
-      }
-      $savedMsg.classList.remove('show');
     });
+  });
+})();
+</script>
 
-    // Guardar todo
-    $btnSave.addEventListener('click', () => {
-      umbralSeleccionado = $umbral.value;
-      localStorage.setItem('cfg_umbral', umbralSeleccionado || '');
-      localStorage.setItem('cfg_canales', JSON.stringify(canalesSeleccionados || []));
-      localStorage.setItem('cfg_notif', 'true'); // siempre activado
-      $savedMsg.classList.add('show');
-      // location.href = '/clean-pay.html'; // si quieres volver automáticamente
-    });
-  </script>
 </body>
 </html>

@@ -2,7 +2,9 @@ import requests
 import json
 import re
 import os
+
 from typing import Dict, Any
+
 
 OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434/api/generate")
 
@@ -21,12 +23,11 @@ Eres un sistema especializado en detección de fraudes y evaluación de riesgos 
 
 **PATRONES DE RIESGO A CONSIDERAR:**
 1. Compras en categorías de alto riesgo (gambling, criptomonedas...)
-2. Primeras compras en comercios desconocidos
-4. Patrones inconsistentes con el comportamiento histórico
-5. Transacciones recurrentes sospechosas
-6. Incrementos altos en pagos recurentes respecto al historial
-7. Recobros de antiguas suscripciones o servicios
-8. Movimientos repetidos en cortos periodos de tiempo del mismo producto o servicio
+2. Primeras compras en comercios desconocidos: Empresas con Estructuras Opacas, Sectores con Alto Flujo de Efectivo, Empresas con Actividad Internacional Inusual, Negocios con Patrones de Transacción Sospechosos, Empresas "Fantasmas" o con Poca Trazabilidad, Sectores con Historial de Blanqueo de Capitales, Empresas Vinculadas a Personas Expuestas Políticamente (PEP)
+3. Patrones inconsistentes con el comportamiento histórico del cliente
+4. Incrementos altos en pagos recurentes respecto al historial del cliente
+5. Recobros de antiguas suscripciones o servicios que ha pagado el cliente
+6. Movimientos repetidos en cortos periodos de tiempo del mismo producto o servicio a partir de 5 repeticiones
 
 **INSTRUCCIÓN:**
 Analiza la transacción actual en contexto del historial del cliente y devuelve SOLO un número entre 0.00 y 1.00 (puede tener 2 decimales) donde:
@@ -83,6 +84,9 @@ def queryLargeLanguageModel(transaccion_actual: Dict[str, Any], historial_comple
         "model": "cas/salamandra-7b-instruct:latest",
         "prompt": prompt_final,
         "stream": False,
+        "options": {
+            "temperature": 0/0.2 
+        }
     }
 
     try:
@@ -101,9 +105,7 @@ def queryLargeLanguageModel(transaccion_actual: Dict[str, Any], historial_comple
                     numero_encontrado = '0' + numero_encontrado
                 
                 riesgo = float(numero_encontrado)
-                print(riesgo)
+
                 return riesgo
-            
     except Exception:
-        print("e0.5")
-        return 0.5
+        return 0.5, "Error en la evaluación del riesgo"
