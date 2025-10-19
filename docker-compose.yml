@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  backend:
+    build: ./api                 # usa api/Dockerfile
+    ports:
+      - "8000:8000"              # http://localhost:8000
+    environment:
+      # --- config que usas en tu código ---
+      DB_PATH: /data/data.db     # ruta SQLite dentro del contenedor
+      MODEL_CACHE: /models       # dir para caché/pesos si los descargas
+      CORS_ORIGINS: "*"          # CORS abierto para el front (hackatón)
+      TF_ENABLE_ONEDNN_OPTS: "0" # tus flags TF
+      TF_CPP_MIN_LOG_LEVEL: "3"
+    volumes:
+      - api_data:/data           # persiste SQLite fuera del contenedor
+      - models_cache:/models     # persiste caché/pesos
+    restart: unless-stopped      # si se cae, se levanta solo (útil en demo)
+
+volumes:
+  api_data:
+  models_cache:
