@@ -33,7 +33,7 @@ if __name__ == "__main__":
     COLUMNAS_CATEGORICAS = ['product_category', 'collector_company', 'iban_anonymized']
     COLUMNA_FECHA = 'transaction_date'
 
-    NOMBRE_ARCHIVO_MODELO = 'machineLearning/machineLearning.weights.h5'
+    NOMBRE_ARCHIVO_MODELO = 'api/ai/machineLearning/machineLearning.weights.h5'
 
     # --- 2. Verificación de Argumentos ---
     ruta_json = sys.argv[1]
@@ -176,7 +176,7 @@ if __name__ == "__main__":
         sys.exit(1)
 
     # --- 9. Guardar el Preprocesador --- NUEVO PASO
-    NOMBRE_ARCHIVO_PREPROCESSOR = 'machineLearning/preprocessor.joblib' # O .pkl si prefieres pickle
+    NOMBRE_ARCHIVO_PREPROCESSOR = 'api/ai/machineLearning/preprocessor.joblib' # O .pkl si prefieres pickle
     # Asegurarse de que el directorio existe (por si acaso)
     modelo_dir = os.path.dirname(NOMBRE_ARCHIVO_PREPROCESSOR)
     if modelo_dir and not os.path.exists(modelo_dir):

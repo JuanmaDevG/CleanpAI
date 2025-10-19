@@ -1,3 +1,4 @@
+from httpx import options
 import requests
 import json
 import re
@@ -9,33 +10,80 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 
 PLANTILLA_PROMPT_RIESGO = """
 Eres un sistema especializado en detección de fraudes y evaluación de riesgos financieros.
+Obedece estrictamente estas reglas de salida:
 
-**CONTEXTO DEL CLIENTE:**
-- Perfil: {edad} años, salario: {salario}€, zona: {zona}
-- Historial de transacciones: {total_transacciones} operaciones
+Salida única: responde en una sola línea y nada más.
 
-**HISTORIAL RECIENTE DEL CLIENTE (últimas transacciones):**
+Formato exacto: [<numero>]: <porque>
+
+Rango: <numero> debe estar entre 0.00 y 1.00, con exactamente 2 decimales.
+
+Normalización obligatoria: si cualquier razonamiento interno te da un valor >1 o en otra escala (p. ej., 2, 3, 4, 7, 35%, 8/10), normaliza a [0,1] antes de escribirlo (ej.: 3 → 0.30; 35% → 0.35; 8/10 → 0.80) y redondea a 2 decimales. Nunca escribas un número fuera de [0.00, 1.00].
+
+Explicación breve: <porque> debe ser una sola frase, breve (≤ 20 palabras), aludiendo a los patrones relevantes.
+
+No añadas saludos, etiquetas, listas, justificaciones largas, JSON ni texto adicional.
+
+Rúbrica de decisión (guía interna):
+
+Señales fuertes simultáneas (p. ej., categoría de alto riesgo + primer comercio + importe muy superior al histórico + recurrencia anómala) → 0.75–0.95.
+
+Varias señales moderadas o una fuerte aislada → 0.40–0.74.
+
+Señales débiles o leve desviación del patrón habitual → 0.15–0.39.
+
+Consistente con el historial y sin señales → 0.00–0.14.
+
+Patrones de riesgo a considerar (pondera en contexto):
+
+Compras en categorías de alto riesgo (gambling, cripto...).
+
+Primeras compras en comercios desconocidos.
+
+Patrones inconsistentes con el comportamiento histórico.
+
+Transacciones recurrentes sospechosas.
+
+Incrementos altos en pagos recurrentes vs. historial.
+
+Recobros de antiguas suscripciones/servicios.
+
+Movimientos repetidos en corto periodo del mismo producto/servicio.
+
+Entrada
+CONTEXTO DEL CLIENTE:
+Perfil: {edad} años, salario: {salario}€, zona: {zona}
+Historial de transacciones: {total_transacciones} operaciones
+
+HISTORIAL RECIENTE DEL CLIENTE (últimas transacciones):
 {historial_reciente}
 
-**TRANSACCIÓN ACTUAL A EVALUAR:**
+TRANSACCIÓN ACTUAL A EVALUAR:
 {transaccion_actual}
 
-**PATRONES DE RIESGO A CONSIDERAR:**
-1. Compras en categorías de alto riesgo (gambling, criptomonedas...)
-2. Primeras compras en comercios desconocidos
-4. Patrones inconsistentes con el comportamiento histórico
-5. Transacciones recurrentes sospechosas
-6. Incrementos altos en pagos recurentes respecto al historial
-7. Recobros de antiguas suscripciones o servicios
-8. Movimientos repetidos en cortos periodos de tiempo del mismo producto o servicio
+Instrucción
+Analiza la transacción actual en el contexto del historial y devuelve únicamente la línea en el formato exigido.
 
-**INSTRUCCIÓN:**
-Analiza la transacción actual en contexto del historial del cliente y devuelve SOLO un número entre 0.00 y 1.00 (puede tener 2 decimales) donde:
-- 0.00 = Riesgo mínimo (transacción normal, consistente con el historial)
-- 1.00 = Riesgo máximo (múltiples señales de fraude)
-Entonces tienes que decidir según tu conocimiento y el contexto dado, ¿cuál es la probabilidad de que esta transacción sea fraudulenta?
+Ejemplos (aprendizaje por demostración)
 
-NO DEVUELVAS NADA MÁS. SOLO EL NÚMERO DEL 0.00 AL 1.00. SOLO EL NÚMERO DEL 0.00 AL 1.00. SOLO EL NÚMERO DEL 0.00 AL 1.00.
+Válido (primer comercio, importe x3, categoría cripto):
+[0.82]: Primer pago en comercio cripto con importe muy superior a su histórico reciente.
+
+Válido (suscripción habitual, importe estable):
+[0.06]: Cargo recurrente conocido y consistente en importe y periodicidad.
+
+Válido (recobro antiguo + incremento fuerte):
+[0.71]: Recobro de suscripción inactiva con incremento de importe frente a histórico.
+
+Corrección de escala (modelo tendería a poner “3”):
+Nunca 3 → Siempre 0.30
+[0.30]: Desviación moderada en importe y comercio poco frecuente.
+
+Corrección de porcentaje (modelo tendería a poner “35%”):
+Nunca 35% → Siempre 0.35
+[0.35]: Comercio nuevo con ligero aumento frente a compras previas en la categoría.
+
+Recuerda: Sólo una línea con el formato exacto; el número siempre entre 0.00 y 1.00 con dos decimales.
 """
 
 
@@ -84,6 +132,9 @@ def queryLargeLanguageModel(transaccion_actual: Dict[str, Any], historial_comple
         "model": "cas/salamandra-7b-instruct:latest",
         "prompt": prompt_final,
         "stream": False,
+        "options": {
+            "temperature": 0/0.2 
+        }
     }
 
     try:
@@ -94,17 +145,24 @@ def queryLargeLanguageModel(transaccion_actual: Dict[str, Any], historial_comple
             response_data = response.json()
             respuesta_texto = response_data['response'].strip()
 
-            match = re.search(r"0?\.\d+", respuesta_texto)
-        
+            print(f'/n/nres: "{respuesta_texto}/n/n"')
+
+            match = re.search(r"\[([0-9]*\.?[0-9]+)\]:\s*(.+)", respuesta_texto)
+    
             if match:
-                numero_encontrado = match.group(0)
-                if numero_encontrado.startswith('.'):
-                    numero_encontrado = '0' + numero_encontrado
-                
+                numero_encontrado = match.group(1)
+                mensaje = match.group(2).strip()
+        
                 riesgo = float(numero_encontrado)
-                print(riesgo)
-                return riesgo
+                return riesgo, mensaje
+            else:
+                match_numero = re.search(r"0?\.\d+", respuesta_texto)
+                if match_numero:
+                    numero_encontrado = match_numero.group(0)
+                    if numero_encontrado.startswith('.'):
+                        numero_encontrado = '0' + numero_encontrado
             
+                    riesgo = float(numero_encontrado)
+                    return riesgo, "No se pudo extraer el mensaje"
     except Exception:
-        print("e0.5")
-        return 0.5
+        return 0.5, "Error en la evaluación del riesgo"

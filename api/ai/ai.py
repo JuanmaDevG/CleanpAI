@@ -17,6 +17,9 @@ import json
 from typing import List, Dict, Any
 from largeLanguageModel.queryLargeLanguageModel import queryLargeLanguageModel
 from machineLearning.queryMachineLearning import queryMachineLearning
+from gplsiAitanaTA2BS.translator import traducir_a_valenciano
+from machineLearning.trainMachineLearning import transformar_fecha_a_timestamp_simple
+
 
 def procesar_transacciones(archivo_json: str, archivo_historial: str) -> List[Dict[str, Any]]:
     with open(archivo_json, 'r', encoding='utf-8') as file:
@@ -39,25 +42,29 @@ def procesar_transacciones(archivo_json: str, archivo_historial: str) -> List[Di
             'has_been_refunded': transaccion['has_been_refunded']
         }
         
-        riesgo_llm = queryLargeLanguageModel(datos_comunes, historial_completo)
+        riesgo_llm, mensaje = queryLargeLanguageModel(datos_comunes, historial_completo)
         riesgo_ml = queryMachineLearning(datos_comunes)
         umbral_probabilistico = (riesgo_llm * 0.5) + (riesgo_ml * 0.5)
         
+        print(f"{traducir_a_valenciano(mensaje)}")
+
         resultado = {
             'iban': datos_analizar['user_profile']['iban_number'],
             'codigo_transaccion': transaccion['transaction_code'],
             'importe': transaccion['transaction_value'],
             'umbral_probabilistico': umbral_probabilistico,
-            'iban_empresa_colaboradora': transaccion['iban_anonymized']
+            'iban_empresa_colaboradora': transaccion['iban_anonymized'],
+            'mensaje': mensaje,
+            'mensaje_valenciano': traducir_a_valenciano(mensaje)
         }
-        
+
         resultados.append(resultado)
     
     return resultados
 
 if __name__ == "__main__":
-    archivo_analizar = "ult_2_dias_cliente1.json"
-    archivo_historial = "cliente1_total.json"
+    archivo_analizar = "json files/testing/ult_2_dias_cliente1.json"
+    archivo_historial = "json files/training/cliente1_total.json"
     
     try:
         resultados = procesar_transacciones(archivo_analizar, archivo_historial)

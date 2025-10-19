@@ -11,7 +11,6 @@ import traceback
 import joblib
 
 from typing import Dict, Any
-from machineLearning.trainMachineLearning import transformar_fecha_a_timestamp_simple
 
 
 def queryMachineLearning(transaction_data: Dict[str, Any]) -> float:
@@ -20,8 +19,8 @@ def queryMachineLearning(transaction_data: Dict[str, Any]) -> float:
     COLUMNAS_CATEGORICAS = ['product_category', 'collector_company', 'iban_anonymized']
     COLUMNA_FECHA = 'transaction_date'
     
-    NOMBRE_ARCHIVO_MODELO = 'machineLearning/machineLearning.weights.h5'
-    NOMBRE_ARCHIVO_PREPROCESSOR = 'machineLearning/preprocessor.joblib'
+    NOMBRE_ARCHIVO_MODELO = 'api/ai/machineLearning/machineLearning.weights.h5'
+    NOMBRE_ARCHIVO_PREPROCESSOR = 'api/ai/machineLearning/preprocessor.joblib'
     
     try:
         if not os.path.exists(NOMBRE_ARCHIVO_MODELO):
