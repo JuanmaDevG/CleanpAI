@@ -39,6 +39,17 @@ services:
       - "8080:80"
     depends_on:
       - backend
+
+  frontend2:
+    build: ./Front2
+    ports:
+      - "8081:3000"                 # front 2 en http://localhost:8081
+    environment:
+      # Si tu app lee una API pública desde el cliente:
+      # NEXT_PUBLIC_API_URL: "http://localhost:8000"
+      NODE_ENV: production
+    depends_on:
+      - backend
 volumes:
   api_data:
   models_cache:

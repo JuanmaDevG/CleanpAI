@@ -339,6 +339,119 @@ def forward_to_zombie_detector_ml(transacciones: List[Dict[str, Any]]) -> List[D
 
     return enriched
 
+# -------------------------
+# DEV: Seed / Reset de datos
+# -------------------------
+
+def _upsert_user(id_usuario: str, iban: str, umbral: str, notificaciones: bool, dias_validez: int = 90):
+    user = Usuarios.query.get(id_usuario)
+    if user is None:
+        user = Usuarios(
+            id=id_usuario,
+            token_acceso=f"TOKEN-{id_usuario}",
+            valido_hasta=datetime.utcnow() + timedelta(days=dias_validez),
+            iban=iban,
+            notificaciones=notificaciones,
+            umbral=UmbralEnum(umbral),
+        )
+        db.session.add(user)
+    else:
+        user.token_acceso = f"TOKEN-{id_usuario}"
+        user.valido_hasta = datetime.utcnow() + timedelta(days=dias_validez)
+        user.iban = iban
+        user.notificaciones = notificaciones
+        user.umbral = UmbralEnum(umbral)
+    return user
+
+def _add_alerta(iban: str, cod_tx: str, importe: float, score: float, empresa: str = None):
+    alerta = AlertasEmitidas(
+        iban=iban,
+        codigo_transaccion=cod_tx,
+        importe=importe,
+        umbral_probabilistico=score,
+        iban_empresa_cobradora=empresa
+    )
+    db.session.add(alerta)
+    return alerta
+
+@app.route("/dev/seed", methods=["POST"])
+def dev_seed():
+    """
+    Crea datos de prueba idempotentes.
+    Body opcional:
+    {
+      "with_alerts": true   # por defecto true
+    }
+    """
+    body = request.get_json(silent=True) or {}
+    with_alerts = body.get("with_alerts", True)
+
+    # --- Usuarios (3 perfiles distintos) ---
+    u1 = _upsert_user(
+        id_usuario="user_alfa",
+        iban="ES9820385778983000760236",
+        umbral="medio",          # 0.70
+        notificaciones=True
+    )
+    u2 = _upsert_user(
+        id_usuario="user_beta",
+        iban="ES9121000418450200051332",
+        umbral="bajo",           # 0.50
+        notificaciones=True
+    )
+    u3 = _upsert_user(
+        id_usuario="user_gamma",
+        iban="ES1720852066781234567890",
+        umbral="alto",           # 0.90
+        notificaciones=False     # desactiva alertas
+    )
+
+    created_alerts = 0
+    if with_alerts:
+        # Limpieza ligera: no borra todo, pero evita duplicar por código de transacción
+        existing_codes = {a.codigo_transaccion for a in AlertasEmitidas.query.all()}
+
+        def safe_add(iban, cod, imp, sc, emp):
+            nonlocal created_alerts
+            if cod not in existing_codes:
+                _add_alerta(iban, cod, imp, sc, emp)
+                existing_codes.add(cod)
+                created_alerts += 1
+
+        # Para user_beta (umbral 0.50) → deberían aparecer muchas en /alerts
+        safe_add(u2.iban, "TX-DEEZER-001", 12.99, 0.62, "DEEZER")
+        safe_add(u2.iban, "TX-SUSCRIP-ANTIGUA-002", 7.99, 0.55, "SERVICIO_OLVIDADO")
+        safe_add(u2.iban, "TX-GYM-003", 29.90, 0.48, "URBAN_GYM")           # por debajo del umbral → no se filtrará si usas min_score >= 0.50
+        safe_add(u2.iban, "TX-STREAM-004", 15.99, 0.73, "STREAMFLIX")
+
+        # Para user_alfa (umbral 0.70) → solo algunas
+        safe_add(u1.iban, "TX-JUEGOS-005", 9.99, 0.71, "GAMECLOUD")
+        safe_add(u1.iban, "TX-APP-006", 3.49, 0.65, "APPSTORE")             # por debajo del umbral
+        safe_add(u1.iban, "TX-CRYPTO-007", 250.00, 0.91, "CRYPTOEX")
+
+        # user_gamma (notificaciones OFF) igualmente dejamos datos manuales para que existan en BD
+        safe_add(u3.iban, "TX-PRUEBA-008", 19.99, 0.88, "TIENDA_X")
+
+    db.session.commit()
+
+    return jsonify({
+        "usuarios": [
+            {"id": u1.id, "iban": u1.iban, "umbral": u1.umbral.value, "notificaciones": u1.notificaciones},
+            {"id": u2.id, "iban": u2.iban, "umbral": u2.umbral.value, "notificaciones": u2.notificaciones},
+            {"id": u3.id, "iban": u3.iban, "umbral": u3.umbral.value, "notificaciones": u3.notificaciones},
+        ],
+        "alertas_creadas": created_alerts
+    }), 201
+
+@app.route("/dev/reset", methods=["POST"])
+def dev_reset():
+    """
+    Borra todas las filas y deja la BD vacía (tablas se mantienen).
+    """
+    num_alerts = AlertasEmitidas.query.delete()
+    num_users = Usuarios.query.delete()
+    db.session.commit()
+    return jsonify({"reset_ok": True, "alertas_borradas": num_alerts, "usuarios_borrados": num_users})
 
 
 if __name__ == "__main__":

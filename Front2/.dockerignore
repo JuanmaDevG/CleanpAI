@@ -1,0 +1,8 @@
+node_modules
+.next
+.git
+Dockerfile
+npm-debug.log*
+.yarn
+.pnp.*
+.DS_Store
