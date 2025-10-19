@@ -141,6 +141,7 @@
   // ===== Config =====
   const MAX_LEN = 6;
   const EXPECTED_CODE = null; // Si quieres exigir uno, p.ej. "123456"
+  const API_BASE = 'http://localhost:8000';
 
   // ===== Estado =====
   let code = "";
@@ -151,6 +152,9 @@
   const notice    = document.getElementById('notice');
   const clearBtn  = document.getElementById('clearBtn');
   const signBtn   = document.getElementById('signBtn');
+
+  // Helpers
+  function getUserId(){ return localStorage.getItem('user_id') || ''; }
 
   // Render de slots
   function renderSlots(){
@@ -210,7 +214,9 @@
 
   // Botones
   clearBtn.addEventListener('click', clearAll);
-  signBtn.addEventListener('click', ()=>{
+
+  // >>> AQUÍ enviamos notificaciones=true al backend al firmar <<<
+  signBtn.addEventListener('click', async ()=>{
     if(code.length !== MAX_LEN){
       showNotice(`La clave debe tener ${MAX_LEN} dígitos.`, 'err');
       return;
@@ -220,9 +226,37 @@
       return;
     }
 
-    localStorage.setItem('AI_Added', 'true'); // opcional
+    // Marca local opcional
+    localStorage.setItem('AI_Added', 'true');
 
-    showNotice('Credenciales correctas. Redirigiendo…', 'ok');
+    // Resuelve user_id
+    const userId = getUserId();
+    if(!userId){
+      showNotice('Falta user_id en localStorage. No se puede notificar al servidor.', 'err');
+      return;
+    }
+
+    // PUT /users/{userId}/config  { notificaciones: true }
+    const url  = `${API_BASE}/users/${encodeURIComponent(userId)}/config`;
+    const body = { notificaciones: true };
+    try {
+      const res = await fetch(url, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(body)
+      });
+      const data = await res.json().catch(()=> ({}));
+      console.log('[PUT status]', res.status, data);
+
+      if(!res.ok) throw new Error(`PUT falló (${res.status})`);
+      showNotice('Credenciales correctas. Redirigiendo…', 'ok');
+    } catch (err) {
+      console.error('[PUT error]', err);
+      // No bloqueamos la UX: informamos y seguimos
+      showNotice('Credenciales correctas (no se pudo notificar al servidor).', 'ok');
+    }
+
+    // Redirección final
     setTimeout(()=>{ window.location.assign('/clear-pay.html'); }, 1200);
   });
 
