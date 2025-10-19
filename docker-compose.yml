@@ -12,11 +12,28 @@ services:
       CORS_ORIGINS: "*"          # CORS abierto para el front (hackatón)
       TF_ENABLE_ONEDNN_OPTS: "0" # tus flags TF
       TF_CPP_MIN_LOG_LEVEL: "3"
+      OLLAMA_URL: http://ollama:11434/api/generate
     volumes:
       - api_data:/data           # persiste SQLite fuera del contenedor
       - models_cache:/models     # persiste caché/pesos
+    depends_on:
+      - ollama
     restart: unless-stopped      # si se cae, se levanta solo (útil en demo)
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"            # opcional: solo si quieres llamar desde tu host para probar
+    volumes:
+      - ollama_models:/root/.ollama   # persiste los modelos descargados
+    healthcheck:
+      test: [ "CMD", "curl", "-fsS", "http://localhost:11434/api/tags" ]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    restart: unless-stopped
 
 volumes:
   api_data:
   models_cache:
+  ollama_models:

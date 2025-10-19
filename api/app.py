@@ -17,7 +17,8 @@ BASE_DIR = Path(__file__).resolve().parent  # carpeta donde está app.py
 
 app = Flask(__name__)
 CORS(app)  # Habilitar CORS para todas las rutas
-db_path = os.getenv("DB_PATH") or str((BASE_DIR / "zombis.db").resolve())
+# elegir ruta de BD: primero DB_PATH (Docker), si no, tu zombis.db local
+db_path = os.getenv("DB_PATH") or str((BASE_DIR / "zombis.db"))
 app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)

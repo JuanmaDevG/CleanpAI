@@ -1,11 +1,10 @@
 import requests
 import json
 import re
-
+import os
 from typing import Dict, Any
 
-
-OLLAMA_URL = "http://localhost:11434/api/generate"
+OLLAMA_URL = os.getenv("OLLAMA_URL", "http://ollama:11434/api/generate")
 
 PLANTILLA_PROMPT_RIESGO = """
 Eres un sistema especializado en detección de fraudes y evaluación de riesgos financieros.
