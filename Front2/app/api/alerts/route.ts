@@ -7,7 +7,7 @@ export async function GET(request: NextRequest) {
     const minScore = searchParams.get("min_score")
 
     // Construir la URL con los parámetros de búsqueda
-    const API_URL = process.env.API_URL || "http://localhost:5000"
+    const API_URL = process.env.API_URL ?? 'http://backend:8000';
     const params = new URLSearchParams()
     if (iban) params.append("iban", iban)
     if (minScore) params.append("min_score", minScore)

@@ -6,7 +6,7 @@ export async function POST(request: NextRequest) {
 
     // Aquí deberías hacer la llamada a tu API real
     // Por ahora, simularemos la respuesta
-    const API_URL = process.env.API_URL || "http://localhost:5000"
+    const API_URL = process.env.API_URL ?? 'http://backend:8000';
 
     const response = await fetch(`${API_URL}/processing/file`, {
       method: "POST",
