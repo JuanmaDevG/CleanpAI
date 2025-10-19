@@ -9,12 +9,16 @@ from pathlib import Path
 from ai.largeLanguageModel.queryLargeLanguageModel import queryLargeLanguageModel
 from ai.machineLearning.queryMachineLearning import queryMachineLearning
 import json
+import os
+DB_PATH = os.getenv("DB_PATH", "data.db")
+MODEL_CACHE = os.getenv("MODEL_CACHE", "/models")
 BASE_DIR = Path(__file__).resolve().parent  # carpeta donde está app.py
 
 
 app = Flask(__name__)
 CORS(app)  # Habilitar CORS para todas las rutas
-app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{(BASE_DIR / 'zombis.db')}"
+db_path = os.getenv("DB_PATH") or str((BASE_DIR / "zombis.db").resolve())
+app.config["SQLALCHEMY_DATABASE_URI"] = f"sqlite:///{db_path}"
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 db = SQLAlchemy(app)
 
